@@ -15,7 +15,28 @@ public class PrincipaleUtilisateur {
 	
 
 	public static void main(String[] args) {
-		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+/////////////////   SQL  /////////////////////	
+		
+//		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL();
 		
 //		METHODE FINDBYID
 //		int id = 5;
