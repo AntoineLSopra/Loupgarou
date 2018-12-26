@@ -1,9 +1,24 @@
 package fr.loupgarou.model;
 
-public class Pouvoir {
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
+
+
+//JOINED
+@Entity
+@Table(name="pouvoir")
+
+public class Pouvoir {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="POU_ID")
 	private int id;
-	private String libelle="";
+	
+	@Column(name="POU_LIBELLE")
+	@NotEmpty
+	@Size(max=250)
+	private String libelle;
 	
 	public int getId() {
 		return id;

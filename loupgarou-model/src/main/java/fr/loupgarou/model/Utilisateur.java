@@ -1,13 +1,40 @@
 package fr.loupgarou.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+
+//JOINED
+@Entity
+@Table(name="utilisateur")
+@Inheritance(strategy=InheritanceType.JOINED)
+
 
 public class Utilisateur {
-
-		private int id = 0;
-		private String nom = "";
-		private String prenom = "";
-		private String username = "";
-		private String password = "";
+		@Id
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Column(name="UTI_ID")
+		private int id;
+		
+		@Column(name="UTI_NOM")
+		@NotEmpty
+		@Size(max=250)
+		private String nom;
+		
+		@Column(name="UTI_PRENOM")
+		@Size(max=100)
+		private String prenom;
+		
+		@Column(name="UTI_USERNAME")
+		@NotEmpty
+		@Size(max=250)
+		private String username;
+		
+		@Column(name="UTI_PASSWORD", length = 250, nullable=false)
+		@NotEmpty
+		@Size(max=250)
+		private String password;
 		
 		public int getId() {
 			return id;
