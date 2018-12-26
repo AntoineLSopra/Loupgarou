@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name="Histoire")
 
 public class Histoire {
 	@Id
@@ -30,7 +32,7 @@ public class Histoire {
 		this.libelle = libelle;
 	}
 	
-	@OneToMany(mappedBy = "personnage")
+	@OneToMany(mappedBy = "partie")
 	public ArrayList<Joueur> getMain() {
 		return main;
 	}
