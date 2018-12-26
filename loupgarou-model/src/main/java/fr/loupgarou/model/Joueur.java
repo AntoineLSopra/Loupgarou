@@ -1,5 +1,13 @@
 package fr.loupgarou.model;
 
+import javax.persistence.*;
+
+
+//JOINED
+@Entity
+@Table(name="joueur")
+@PrimaryKeyJoinColumn(name="JOU_ID", referencedColumnName="UTI_ID")
+
 public class Joueur extends Utilisateur {
 	
 	

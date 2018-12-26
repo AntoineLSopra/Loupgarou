@@ -1,8 +1,10 @@
 package fr.loupgarou.model;
 
+import javax.persistence.*;
+
 public class Participation {
 
-	
+	@Enumerated (EnumType.ORDINAL)
 	private Role role = Role.LOUP;
 
 	

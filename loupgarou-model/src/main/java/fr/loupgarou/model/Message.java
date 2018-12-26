@@ -1,9 +1,19 @@
 package fr.loupgarou.model;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="message")
+
 public class Message {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="MES_ID")
+	private int id;
 	
-private int id = 0;
-private String contenu;
+	@Column(name="MES_CONTENU", columnDefinition="TEXT")
+	private String contenu;
 	
 
 	public int getId() {

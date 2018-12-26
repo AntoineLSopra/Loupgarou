@@ -2,10 +2,30 @@ package fr.loupgarou.model;
 
 import java.util.ArrayList;
 
-public class Personnage {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
+@Entity
+@Table(name="personnage")
+
+public class Personnage {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="PER_ID")
 	private int id;
-	private String libelle="";
+	@Column(name="POU_LIBELLE")
+	@NotEmpty
+	@Size(max=250)
+	private String libelle;
+
 	
 	
 
