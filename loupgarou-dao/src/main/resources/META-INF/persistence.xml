@@ -19,7 +19,7 @@
 		<class>fr.loupgarou.model.Utilisateur</class>
 		
 		<properties>
-			<property name="hibernate.connection.url" value="jdbc:mysql://192.168.1.125:3306/surfy?serverTimezone=UTC" />
+			<property name="hibernate.connection.url" value="jdbc:mysql://192.168.1.125:3306/loupgarou?serverTimezone=UTC" />
 			<property name="hibernate.connection.driver" value="com.mysql.jdbc.Driver" />
 			<property name="hibernate.connection.user" value="root" />
 			<property name="hibernate.connection.password" value="" />

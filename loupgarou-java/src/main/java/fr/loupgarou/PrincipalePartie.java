@@ -1,6 +1,8 @@
 package fr.loupgarou;
 
 import java.util.List;
+import java.util.Scanner;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,29 +19,9 @@ public class PrincipalePartie {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
 		EntityManager em = emf.createEntityManager();
 		
-		
-		//	findAll(): AFFICHER PARTIES	
 	
-			IDAOPartie daoPartie = new DAOPartieSQL(emf);
+//			findAll(): AFFICHER PARTIES	
 			
-			for (Partie p: daoPartie.findAll()) {
-				System.out.println(p.getId());
-		
-			}
-				
-				
-				
-				
-				
-			em.close();
-			emf.close();
-		
-		
-	
-			
-/////////////////   SQL  /////////////////////		
-		
-		
 //			IDAOPartie daoPartie = new DAOPartieSQL();
 //			
 //			List<Partie> lesParties = daoPartie.findAll();
@@ -92,11 +74,11 @@ public class PrincipalePartie {
 //			Joueur capitaine = new Joueur();
 //			capitaine.setId(26);
 //			
-//			Partie xxx = daoPartie.findById(16);
+//			Partie nouvellePartie = daoPartie.findById(16);
 //			
-//			xxx.setCapitaine(capitaine);
+//			nouvellePartie.setCapitaine(capitaine);
 //			
-//			daoPartie.modify(xxx);
+//			daoPartie.save(nouvellePartie);
 			
 		
 			
@@ -107,8 +89,10 @@ public class PrincipalePartie {
 //			daoPartie.deleteById(5);
 			
 			
+		em.close();
+		emf.close();
 			
-	
 	}
+	
 	
 }

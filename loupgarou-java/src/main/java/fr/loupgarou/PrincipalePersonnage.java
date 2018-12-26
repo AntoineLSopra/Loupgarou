@@ -29,36 +29,7 @@ public class PrincipalePersonnage {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
 		EntityManager em = emf.createEntityManager();
 		
-		
-//		findAll(): AFFICHER PERSONNAGES
-		
-				IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
-				
-				for (Personnage p: daoPersonnage.findAll()) {
-					System.out.println(p.getId());
-			
-				}
-		
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		em.close();
-		emf.close();
-		
-	
-		
-		
-		
-/////////////////   SQL  /////////////////////	
-		
-		
+
 //		findAll(): AFFICHER PERSONNAGES
 		
 //		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
@@ -102,6 +73,8 @@ public class PrincipalePersonnage {
 //		daoPersonnage.deleteById(10);
 		
 		
+		em.close();
+		emf.close();
 		
 	}
 }
