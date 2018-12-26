@@ -2,12 +2,21 @@ package fr.loupgarou.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import fr.loupgarou.model.*;
 
 public class Histoire {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="HIS_ID")
 	private int id;
-	private String libelle="";
+	
+	@Column(name="HIS_LIBELLE")
+	private String libelle;
+	//A FAIRE
 	private ArrayList<Joueur> main;
 	
 	

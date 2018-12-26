@@ -1,9 +1,20 @@
 package fr.loupgarou.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="partie")
+
 public class Partie {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PAR_ID")
 	private int id;
+	
+	//A FAIRE
 	private Histoire histoire;
+	
+	//A FAIRE
 	private Joueur capitaine;
 	
 	
