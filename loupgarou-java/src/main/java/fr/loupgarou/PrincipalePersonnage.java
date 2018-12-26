@@ -9,9 +9,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import fr.loupgarou.dao.*;
+import fr.loupgarou.dao.sql.DAOPartieSQL;
 import fr.loupgarou.dao.sql.DAOPersonnageSQL;
+import fr.loupgarou.idao.sql.IDAOPartie;
 import fr.loupgarou.idao.sql.IDAOPersonnage;
 import fr.loupgarou.model.*;
 
@@ -20,6 +25,39 @@ import fr.loupgarou.model.*;
 public class PrincipalePersonnage {
 
 	public static void main(String[] args) {
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		EntityManager em = emf.createEntityManager();
+		
+		
+//		findAll(): AFFICHER PERSONNAGES
+		
+				IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
+				
+				for (Personnage p: daoPersonnage.findAll()) {
+					System.out.println(p.getId());
+			
+				}
+		
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		em.close();
+		emf.close();
+		
+	
+		
+		
+		
+/////////////////   SQL  /////////////////////	
+		
 		
 //		findAll(): AFFICHER PERSONNAGES
 		

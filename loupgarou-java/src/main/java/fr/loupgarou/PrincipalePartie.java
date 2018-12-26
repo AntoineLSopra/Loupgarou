@@ -1,18 +1,45 @@
 package fr.loupgarou;
 
-import java.util.List; 
-
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import fr.loupgarou.dao.sql.DAOPartieSQL;
 import fr.loupgarou.idao.sql.IDAOPartie;
 import fr.loupgarou.model.*;
+
+
 
 public class PrincipalePartie {
 
 	public static void main(String[] args) {
 			
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		EntityManager em = emf.createEntityManager();
+		
+		
+		//	findAll(): AFFICHER PARTIES	
+	
+			IDAOPartie daoPartie = new DAOPartieSQL(emf);
 			
-		//	findAll(): AFFICHER PARTIES
+			for (Partie p: daoPartie.findAll()) {
+				System.out.println(p.getId());
+		
+			}
+				
+				
+				
+				
+				
+			em.close();
+			emf.close();
+		
+		
+	
 			
+/////////////////   SQL  /////////////////////		
+		
+		
 //			IDAOPartie daoPartie = new DAOPartieSQL();
 //			
 //			List<Partie> lesParties = daoPartie.findAll();
