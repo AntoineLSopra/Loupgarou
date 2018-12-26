@@ -12,9 +12,13 @@ public class Partie {
 	private int id;
 	
 	//A FAIRE
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name="PAR_HISTOIRE_ID")
 	private Histoire histoire;
 	
 	//A FAIRE
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name="PAR_CAPITAINE_ID")
 	private Joueur capitaine;
 	
 	

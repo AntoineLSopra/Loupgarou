@@ -3,10 +3,9 @@ package fr.loupgarou.model;
 import java.util.ArrayList;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 
-import fr.loupgarou.model.*;
+@Entity
+@Table(name="Histoire")
 
 public class Histoire {
 	@Id
@@ -32,7 +31,8 @@ public class Histoire {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
-
+	
+	@OneToMany(mappedBy = "partie")
 	public ArrayList<Joueur> getMain() {
 		return main;
 	}
