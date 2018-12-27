@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 
 import fr.loupgarou.idao.sql.IDAOPouvoir;
 import fr.loupgarou.model.Pouvoir;
-import fr.loupgarou.model.Pouvoir;
+
 
 public class DAOPouvoirSQL extends DAOSQL implements IDAOPouvoir {
 private EntityManager em;

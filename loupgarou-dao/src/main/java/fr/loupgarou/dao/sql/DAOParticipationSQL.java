@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 
 import fr.loupgarou.idao.sql.IDAOParticipation;
 import fr.loupgarou.model.Participation;
-import fr.loupgarou.model.Participation;
 
 public class DAOParticipationSQL extends DAOSQL implements IDAOParticipation  {
 	private EntityManager em;

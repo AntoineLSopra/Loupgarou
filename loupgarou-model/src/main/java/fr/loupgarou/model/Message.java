@@ -15,6 +15,14 @@ public class Message {
 	@Column(name="MES_CONTENU", columnDefinition="TEXT")
 	private String contenu;
 	
+	@ManyToOne
+	@JoinColumn(name="MES_PARTIE_ID")
+	private Partie partie;
+	
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name="MES_JOUEUR_ID")
+	private Joueur joueur;
+	
 
 	public int getId() {
 		return id;
@@ -30,6 +38,14 @@ public class Message {
 
 	public void setContenu(String contenu) {
 		this.contenu = contenu;
+	}
+
+	public Joueur getJoueur() {
+		return joueur;
+	}
+
+	public void setJoueur(Joueur joueur) {
+		this.joueur = joueur;
 	}
 
 

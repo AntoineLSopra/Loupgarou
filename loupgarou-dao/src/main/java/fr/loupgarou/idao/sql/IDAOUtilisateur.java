@@ -1,6 +1,7 @@
 package fr.loupgarou.idao.sql;
 
-import fr.loupgarou.dao.sql.*;
+
+import exception.CountnotfoundException;
 import fr.loupgarou.model.*;
 
 public interface IDAOUtilisateur extends IDAO<Utilisateur>{

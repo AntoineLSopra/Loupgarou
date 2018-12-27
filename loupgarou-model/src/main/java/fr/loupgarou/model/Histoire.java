@@ -15,7 +15,8 @@ public class Histoire {
 	
 	@Column(name="HIS_LIBELLE")
 	private String libelle;
-	//A FAIRE
+
+	//A Faire
 	private ArrayList<Joueur> main;
 	
 	

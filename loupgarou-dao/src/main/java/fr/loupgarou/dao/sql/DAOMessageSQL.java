@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import fr.loupgarou.idao.sql.IDAOMessage;
-import fr.loupgarou.model.Histoire;
 import fr.loupgarou.model.Message;
 
 public class DAOMessageSQL extends DAOSQL implements IDAOMessage {
