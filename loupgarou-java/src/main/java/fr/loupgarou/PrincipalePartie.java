@@ -46,23 +46,23 @@ public class PrincipalePartie {
 			
 			
 		//	save(): CREER UNE NOUVELLE PARTIE
+		EntityManagerFactory emf2 = Persistence.createEntityManagerFactory("loupgarou");
+			IDAOPartie daoPartie = new DAOPartieSQL(emf);
+	
 			
-//			IDAOPartie daoPartie = new DAOPartieSQL();
-//	
-//			
-//			Partie maPartie= new Partie();
-//			
-//			
-//			Histoire story = new Histoire();
-//			Joueur capitaine = new Joueur();
-//			story.setId(1);
-//			capitaine.setId(25);
-//			
-//			maPartie.setHistoire(story);
-//			maPartie.setCapitaine(capitaine);
-//			
-//			
-//			daoPartie.save(maPartie);
+			Partie maPartie= new Partie();
+			
+			
+			Histoire story = new Histoire();
+			Joueur capitaine = new Joueur();
+			story.setId(1);
+			capitaine.setId(25);
+			
+			maPartie.setHistoire(story);
+			maPartie.setCapitaine(capitaine);
+			
+			
+			daoPartie.save(maPartie);
 			
 			
 			

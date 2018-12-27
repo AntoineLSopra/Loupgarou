@@ -1,6 +1,4 @@
 package fr.loupgarou;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.persistence.EntityManagerFactory;
@@ -10,13 +8,13 @@ import exception.CountnotfoundException;
 import fr.loupgarou.model.*;
 
 import fr.loupgarou.dao.sql.*;
-import fr.loupgarou.dao.sql.*;
 import fr.loupgarou.idao.sql.*;
 
 public class Principale {
 		
 	public static void main(String[] args) throws CountnotfoundException {
-		connect();
+//		
+
 //		System.out.println("-----------  MENU  -----------");
 //		System.out.println("0 -  QUITTER");
 //		System.out.println("1 -  SE CONNECTER");

@@ -67,7 +67,7 @@ public class PrincipalePersonnage {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
 		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
 		Personnage monPerso= new Personnage();
-		monPerso.setLibelle("Ogre");
+		monPerso.setLibelle("Theman");
 		daoPersonnage.save(monPerso);
 		emf.close();
 	}
