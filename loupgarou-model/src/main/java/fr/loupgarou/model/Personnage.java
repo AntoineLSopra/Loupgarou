@@ -21,7 +21,7 @@ public class Personnage {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PER_ID")
 	private int id;
-	@Column(name="POU_LIBELLE")
+	@Column(name="PER_LIBELLE")
 	@NotEmpty
 	@Size(max=250)
 	private String libelle;

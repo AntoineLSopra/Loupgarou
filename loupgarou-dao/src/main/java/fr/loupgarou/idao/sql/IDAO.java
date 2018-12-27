@@ -2,6 +2,7 @@ package fr.loupgarou.idao.sql;
 
 import java.util.List;
 
+import fr.loupgarou.model.Message;
 import fr.loupgarou.model.Partie;
 import fr.loupgarou.model.Personnage;
 

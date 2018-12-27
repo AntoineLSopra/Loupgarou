@@ -24,10 +24,7 @@ public class DAOPersonnageSQL extends DAOSQL implements IDAOPersonnage{
 	public DAOPersonnageSQL(EntityManagerFactory emf) {
 		this.em = emf.createEntityManager();
 	}
-	
-	
-	
-	
+
 	public List<Personnage> findAll() {
 		
 		return em

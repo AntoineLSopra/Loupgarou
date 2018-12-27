@@ -26,25 +26,17 @@ public class DAOPartieSQL extends DAOSQL implements IDAOPartie {
 			
 		
 		public List<Partie> findAll() {
-			
 			return em
 					.createQuery("select p from Partie p", Partie.class)
 					.getResultList();
-			
 		}
 		
 		
 		public Partie findById(int id) {
-			
-			
-			return em.find(Partie.class, id);
-			
+			return em.find(Partie.class, id);	
 		}
 		
-
-		public Partie save(Partie entity) {
-			
-			
+		public Partie save(Partie entity) {	
 			em.getTransaction().begin();
 			
 			if (entity.getId() == 0) {
@@ -59,7 +51,6 @@ public class DAOPartieSQL extends DAOSQL implements IDAOPartie {
 			em.getTransaction().commit();
 			
 			return entity;
-			
 		}
 		
 		
