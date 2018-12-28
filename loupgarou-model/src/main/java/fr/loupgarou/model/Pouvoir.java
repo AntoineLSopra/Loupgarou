@@ -1,5 +1,7 @@
 package fr.loupgarou.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -19,6 +21,9 @@ public class Pouvoir {
 	@NotEmpty
 	@Size(max=250)
 	private String libelle;
+	
+	@ManyToMany(mappedBy="pouvoirs")
+    private List<Personnage> personnages;
 	
 	public int getId() {
 		return id;
