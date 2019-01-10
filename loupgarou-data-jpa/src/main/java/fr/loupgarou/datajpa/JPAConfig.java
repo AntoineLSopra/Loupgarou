@@ -58,7 +58,7 @@ public class JPAConfig {
 	LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 	JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	emf.setDataSource(dataSource);
-	emf.setPackagesToScan("eshop.model");
+	emf.setPackagesToScan("fr.loupgarou.model");
 	emf.setJpaVendorAdapter(vendorAdapter);
 	emf.setJpaProperties(this.hibernateProperties());
 	return emf;

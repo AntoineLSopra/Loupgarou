@@ -16,8 +16,8 @@ public class PrincipaleUtilisateur {
 
 		
 /////////////////   SQL  /////////////////////	
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
-		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL(emf);
+//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+//		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL(emf);
 		
 //		METHODE FINDBYID
 //		int id = 5;
