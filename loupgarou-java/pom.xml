@@ -3,6 +3,8 @@
   <groupId>fr.loupgarou</groupId>
   <artifactId>loupgarou-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
   <dependencies>
   	<dependency>
   		<groupId>fr.loupgarou</groupId>
