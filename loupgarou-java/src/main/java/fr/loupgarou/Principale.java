@@ -14,14 +14,10 @@ public class Principale {
 	@Autowired
 	private IDAOUtilisateur daoUtilisateur;
 	
-//	@Autowired
-//	private ApplicationContext ctx;
-	
 	@Transactional
 	public void  run (String[] args)   {
 		
 		System.out.println("-----------------------FIND BY UTILISATEUR ID------------------------");
-//		IDAOUtilisateur daoUtilisateur = ctx.getBean(IDAOUtilisateur.class);
 	
 		for (Utilisateur p: (daoUtilisateur).findByUtilisateurId(25)) {
 			System.out.println(p.getId() + " | " + p.getNom()+ " | " + p.getPrenom()); 
@@ -30,7 +26,7 @@ public class Principale {
 
 	}
 		
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+
 //		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL(emf);
 //		System.out.println("-----------  MENU  -----------");
 //		System.out.println("0 -  QUITTER");
