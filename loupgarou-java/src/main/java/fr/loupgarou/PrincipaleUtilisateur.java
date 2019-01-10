@@ -8,34 +8,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import fr.loupgarou.*;
-import fr.loupgarou.dao.*;
-import fr.loupgarou.dao.sql.*;
-import fr.loupgarou.idao.sql.IDAOUtilisateur;
 import fr.loupgarou.model.*;
 
 
 public class PrincipaleUtilisateur {
 	
 
-	public static void main(String[] args) {
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 /////////////////   SQL  /////////////////////	
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
@@ -113,12 +91,6 @@ public class PrincipaleUtilisateur {
 //		String d = sc.next();
 //		modifierUtilisateur.setPassword(d);
 //		daoUtilisateur.save(modifierUtilisateur);	
-		
-		
-		
-
-		
-	
-	}	
+			
 		
 }

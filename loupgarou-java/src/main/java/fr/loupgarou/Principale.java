@@ -3,16 +3,22 @@ import java.util.Scanner;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
+import fr.loupgarou.datajpa.IDAOUtilisateur;
 import fr.loupgarou.model.*;
-
-import fr.loupgarou.dao.sql.*;
-import fr.loupgarou.idao.sql.*;
 
 public class Principale {
 		
-	public static void main(String[] args){
+	@Autowired
+	private IDAOUtilisateur daoUtilisateur;
+	
+	@Autowired
+	private ApplicationContext ctx;
+	
+	@Transactional
+	public void  run (String[] args)   {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
 		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL(emf);
 		System.out.println("-----------  MENU  -----------");
