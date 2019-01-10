@@ -2,39 +2,59 @@ package fr.loupgarou.dao.sql;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import fr.loupgarou.idao.sql.IDAOPouvoir;
 import fr.loupgarou.model.Pouvoir;
 
-public class DAOPouvoirSQL extends DAOSQL implements IDAOPouvoir {
 
+public class DAOPouvoirSQL extends DAOSQL implements IDAOPouvoir {
+private EntityManager em;
+	
+	public DAOPouvoirSQL(EntityManagerFactory em5) {
+		this.em = em5.createEntityManager();
+	}
 	
 	public List<Pouvoir> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return em
+				.createQuery("select h from Histoire h", Pouvoir.class)
+				.getResultList();
 	}
-
 	
 	public Pouvoir findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Pouvoir.class, id);
 	}
 
 	
 	public Pouvoir save(Pouvoir entity) {
-		// TODO Auto-generated method stub
-		return null;
+		//On démarre la transaction
+		em.getTransaction().begin();
+		
+		if (entity.getId() == 0) {
+			em.persist(entity);
+		}
+		
+		else {
+			entity = em.merge(entity);
+		}
+		
+		//On commit la transaction
+		em.getTransaction().commit();
+		
+		return entity;
 	}
 
 	
 	public void delete(Pouvoir entity) {
-		// TODO Auto-generated method stub
-		
+		em.remove(em.merge(entity));
 	}
 
 	
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
-		
+		Pouvoir myPouvoir = new Pouvoir();
+		myPouvoir.setId(id);
+		this.delete(myPouvoir);
 	}
 
 }

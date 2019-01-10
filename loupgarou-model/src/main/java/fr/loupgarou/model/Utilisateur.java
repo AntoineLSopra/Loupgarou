@@ -1,5 +1,7 @@
 package fr.loupgarou.model;
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -35,6 +37,8 @@ public class Utilisateur {
 		@NotEmpty
 		@Size(max=250)
 		private String password;
+		
+		
 		
 		public int getId() {
 			return id;
@@ -75,7 +79,6 @@ public class Utilisateur {
 			u.setPassword(password);
 			return u;
 		}
-		
 		
 		
 		

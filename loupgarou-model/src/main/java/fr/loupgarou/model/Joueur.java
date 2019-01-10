@@ -1,5 +1,7 @@
 package fr.loupgarou.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -9,18 +11,26 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name="JOU_ID", referencedColumnName="UTI_ID")
 
 public class Joueur extends Utilisateur {
+	@OneToMany(mappedBy = "joueur")
+	private List<Message> discussion;
 	
-	
-	private Boolean Banni = false; 
-	
-	
+	@Column(name="JOU_BANNI")
+	private Boolean banni = false; 
+
 	
 	public Boolean isBanni() {
-		return Banni;
+		return banni;
 	}
 	public void setBanni(Boolean banni) {
-		Banni = banni;
+		banni = this.banni;
 	}
+	public List<Message> getDiscussion() {
+		return discussion;
+	}
+	public void setDiscussion(List<Message> discussion) {
+		this.discussion = discussion;
+	}
+	
 	
 	
 	

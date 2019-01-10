@@ -13,11 +13,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import fr.loupgarou.dao.*;
-import fr.loupgarou.dao.sql.DAOPartieSQL;
-import fr.loupgarou.dao.sql.DAOPersonnageSQL;
-import fr.loupgarou.idao.sql.IDAOPartie;
-import fr.loupgarou.idao.sql.IDAOPersonnage;
+import fr.loupgarou.dao.sql.*;
+import fr.loupgarou.idao.sql.*;
 import fr.loupgarou.model.*;
 
 
@@ -26,55 +23,59 @@ public class PrincipalePersonnage {
 
 	public static void main(String[] args) {
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
-		EntityManager em = emf.createEntityManager();
+		
 		
 
 //		findAll(): AFFICHER PERSONNAGES
-		
-//		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
-//		
-//		List<Personnage> lesPersonnages = daoPersonnage.findAll();
-//		
-//		System.out.println("----  NOM DES PERSONNAGES  ----");
-//		
-//		for (Personnage p : lesPersonnages) {
-//			System.out.println(p.getId() + "-" + p.getLibelle() );
-//		}
-	
+//		trouverTousPersonnages();	
 		
 //		findById(): TROUVER PERSONNAGE
-		
-//		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
-//		Personnage lePersonnage = daoPersonnage.findById(1);
-//		System.out.println(lePersonnage.getLibelle());
-		
+//		trouverPersonnageParId();
 		
 //		save(): CREER UN NOUVEAU PERSONNAGE
-		
-//		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
-//		Personnage monPerso= new Personnage();
-//		monPerso.setLibelle("Ogre");
-//		daoPersonnage.save(monPerso);
-		
-		
-		
-//		save(): MODIFIER UN PERSONNAGE
-		
-//		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
-//		Personnage Loup = daoPersonnage.findById(1);
-//		Loup.setLibelle("Loup_Garou");
-//		daoPersonnage.save(Loup);
-		
+//		sauvegarderPersonnage();			
 		
 //		deleteById(): SUPPRIMER PERSONNAGE
+//		supprimerPersonnageParId();
+
 		
-//		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL();
-//		daoPersonnage.deleteById(10);
+	}
+	
+	public static void trouverTousPersonnages() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
 		
+		List<Personnage> lesPersonnages = daoPersonnage.findAll();
 		
-		em.close();
+		System.out.println("----  NOM DES PERSONNAGES  ----");
+		
+		for (Personnage p : lesPersonnages) {
+		System.out.println(p.getId() + "-" + p.getLibelle() );
 		emf.close();
-		
+		}
+	}
+	
+	public static void trouverPersonnageParId() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
+		Personnage lePersonnage = daoPersonnage.findById(1);
+		System.out.println(lePersonnage.getLibelle());
+		emf.close();
+	}
+	
+	public static void sauvegarderPersonnage() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
+		Personnage monPerso= new Personnage();
+		monPerso.setLibelle("Theman");
+		daoPersonnage.save(monPerso);
+		emf.close();
+	}
+	
+	public static void supprimerPersonnageParId() {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		IDAOPersonnage daoPersonnage = new DAOPersonnageSQL(emf);
+		daoPersonnage.deleteById(10);
+		emf.close();
 	}
 }
