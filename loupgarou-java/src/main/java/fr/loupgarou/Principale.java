@@ -11,7 +11,7 @@ import fr.loupgarou.model.*;
 
 public class Principale {
 		
-	@Autowired
+	@Autowired(required = false)
 	private IDAOUtilisateur daoUtilisateur;
 	//@Transactional
 	public void  run (String[] args)   {
@@ -26,7 +26,6 @@ public class Principale {
 		while (num != 0) {
 			if (num == 1) {
 				connect();
-//				daoUtilisateur
 			}
 			else if (num == 2) {
 				inscriptionJoueur();
@@ -53,10 +52,8 @@ public class Principale {
 			System.out.println("Username : ");
 			String use = sc.next();
 			System.out.println("Password : ");
-			String pass = sc.next();
-					
+			String pass = sc.next();	
 			int i = connexion(use, pass);
-	
 			
 		if (i == 1) {
 			System.out.println("--------  MENU JOUEUR  --------");
@@ -78,14 +75,12 @@ public class Principale {
 		else if (i == 2) {
 			System.out.println("--------  MENU ADMINISTRATEUR  --------");
 			System.out.println("0 -  QUITTER");
-			System.out.println("1 - AFFICHER PARTIES");
-			System.out.println("2 -  ");
-			System.out.println("3 -  ");
+			System.out.println("1 - TROUVER UTILISATEUR");
 			System.out.println("choisir option: "); 
 			int num= lireEntier();
 			
 			if (num == 1) {
-				System.out.println("A FAIRE: ");
+				trouverUtilisateur();
 			}
 			
 			else if (num == 2) {
@@ -96,7 +91,7 @@ public class Principale {
 	
 	
 
-	public int connexion (String use, String pass) {
+	public int connexion () {
 	    int i = 0;
 	//   System.out.println(daoUtilisateur.connexionJoueur("AntoineL", "0000"));
 	    System.out.println(daoUtilisateur.connexionJoueur("Jerem", "0000"));
@@ -156,12 +151,18 @@ public class Principale {
 		}
 	}
 	
+	public void trouverUtilisateur() {
 	
-//	System.out.println("-----------------------FIND BY UTILISATEUR ID------------------------");
-//	
-//		for (Utilisateur u: ((IDAOUtilisateur)daoUtilisateur).findByUtilisateurId(25)) {
-//			System.out.println(u.getId() + " | " + u.getNom()+ " | " + u.getPrenom()); 
-//			System.out.println("---------------------------");
-//		}
-		
+	System.out.println("-----------------------RECHERCHE UTILISATEUR PAR ID------------------------");
+	
+		System.out.println("Entrer l'Id de l'utilisateur:"); 
+		int i = lireEntier();
+		for (Utilisateur u: ((IDAOUtilisateur)daoUtilisateur).findByUtilisateurId(i)) {
+			System.out.println(u.getId() + " | " + u.getNom()+ " | " + u.getPrenom()); 
+			System.out.println("---------------------------");
+		}
+	}
+	
+
+	
 }
