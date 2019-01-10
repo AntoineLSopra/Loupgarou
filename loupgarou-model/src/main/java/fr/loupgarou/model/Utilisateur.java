@@ -79,6 +79,11 @@ public class Utilisateur {
 			u.setPassword(password);
 			return u;
 		}
+		@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+			return this.getUsername();
+		}
 		
 		
 		
