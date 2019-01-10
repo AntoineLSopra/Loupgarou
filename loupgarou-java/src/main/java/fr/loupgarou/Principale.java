@@ -47,7 +47,7 @@ public class Principale {
 		
 	public void connect() {
 
-		int i = 0;
+	
 		Scanner sc = new Scanner(System.in);	
 			System.out.println("------------- Connexion ----------------");
 			System.out.println("Username : ");
@@ -55,9 +55,8 @@ public class Principale {
 			System.out.println("Password : ");
 			String pass = sc.next();
 					
-			
-		/// INSERER LA FONCTION CONNEXION OU AUTHENTIFICATION
-			
+			int i = connexion(use, pass);
+	
 			
 		if (i == 1) {
 			System.out.println("--------  MENU JOUEUR  --------");
@@ -96,6 +95,27 @@ public class Principale {
 	}
 	
 	
+
+	public int connexion (String use, String pass) {
+	    int i = 0;
+	//   System.out.println(daoUtilisateur.connexionJoueur("AntoineL", "0000"));
+	    System.out.println(daoUtilisateur.connexionJoueur("Jerem", "0000"));
+	    
+	    if (daoUtilisateur.connexionJoueur(use, pass) != null) {
+	      System.out.println("Bienvenue : " + use);
+	      return i = 1;
+	    }
+	    if (daoUtilisateur.connexionAdministrateur(use, pass) != null) {
+	      System.out.println("Bienvenue adm : " + use);
+	      return i = 2;
+	      
+	    }
+	    else {
+	      System.out.println("Connexion échouée");
+	      return i;
+	    }
+	  }
+
 	public void inscriptionJoueur() {
 	
 	
@@ -123,7 +143,6 @@ public class Principale {
 	
 		System.out.println("Joueur Inscrit");
 	}
-
 
 	static int lireEntier() {
 		Scanner myScanner = new Scanner(System.in);
