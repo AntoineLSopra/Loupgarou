@@ -17,7 +17,8 @@ public class Joueur extends Utilisateur {
 	@Column(name="JOU_BANNI")
 	private Boolean banni = false; 
 
-	
+
+
 	public Boolean isBanni() {
 		return banni;
 	}
