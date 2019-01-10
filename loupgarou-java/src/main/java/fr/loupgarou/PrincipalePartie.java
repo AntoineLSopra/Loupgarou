@@ -13,7 +13,7 @@ import fr.loupgarou.model.*;
 
 public class PrincipalePartie {
 
-	public static void main(String[] args) {
+	
 	
 		//	findAll(): AFFICHER PARTIES	
 //		afficherParties();
@@ -30,15 +30,13 @@ public class PrincipalePartie {
 //		//	deleteById(): SUPPRIMER PARTIE
 //		supprimerPartie();
 		
-		sauvegarderHistoire();
-			
-	}
+//		sauvegarderHistoire();
+//			
+	
 	
 	public static void nouvellePartie() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
 		IDAOPartie daoPartie = new DAOPartieSQL(emf);
-		
-		
 	}
 	
 	public static void afficherParties() {
