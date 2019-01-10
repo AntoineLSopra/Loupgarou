@@ -21,7 +21,7 @@ import fr.loupgarou.model.*;
 
 public class PrincipalePersonnage {
 
-	public static void main(String[] args) {
+
 		
 		
 		
@@ -38,8 +38,7 @@ public class PrincipalePersonnage {
 //		deleteById(): SUPPRIMER PERSONNAGE
 //		supprimerPersonnageParId();
 
-		
-	}
+	
 	
 	public static void trouverTousPersonnages() {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
