@@ -16,17 +16,10 @@ import fr.loupgarou.model.*;
 
 
 public interface IDAOUtilisateur extends JpaRepository<Utilisateur, Integer>{
-	@Query("select j from Joueur j where j.username = :username and j.password = :password and j.banni = false")
-	public Joueur connexionJoueur(@Param ("username") String use, @Param ("password") String pass);
-
-	@Query("select a from Administrateur a where a.username = :username and a.password = :password")
-	public Administrateur connexionAdministrateur(@Param ("username") String use, @Param ("password") String pass);
 	
 	@Query("select u from Utilisateur u where u.id = :id")
 	public List<Utilisateur> findByUtilisateurId(@Param ("id") int id);
 
-	
-	
 	@Query("select j from Joueur j where j.username = :username and j.password = :password and j.banni = false")
     public Joueur connexionJoueur(@Param ("username") String use, @Param ("password") String pass);
 	
