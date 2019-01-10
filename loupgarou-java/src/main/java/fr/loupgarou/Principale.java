@@ -22,21 +22,21 @@ public class Principale {
 		System.out.println("choisir option: "); 
 		int num = lireEntier();	
 		
-		while (num != 0) {
+//		while (num != 0) {
 			if (num == 1) {
 				connect(daoUtilisateur);
 			}
 			else if (num == 2) {
 				inscriptionJoueur(daoUtilisateur);
 			}	
-			System.out.println("-----------  MENU  -----------");
-			System.out.println("0 -  QUITTER");
-			System.out.println("1 -  SE CONNECTER");
-			System.out.println("2 -  S'INSCRIRE");
-			System.out.println("choisir option: "); 
-			num= lireEntier();
+//			System.out.println("-----------  MENU  -----------");
+//			System.out.println("0 -  QUITTER");
+//			System.out.println("1 -  SE CONNECTER");
+//			System.out.println("2 -  S'INSCRIRE");
+//			System.out.println("choisir option: "); 
+//			num= lireEntier();
 			
-		}
+//		}
 		emf.close();
 	} 	
 	
@@ -94,37 +94,29 @@ public class Principale {
 	
 	
 	public static void menuJoueur(IDAOUtilisateur daoUtilisateur) {
-		int num = 0;
-		while (num != 0) {
-			if (num == 1) {
-//				nouvellePartie();
-			}
-			else if (num == 2) {
-				inscriptionJoueur(daoUtilisateur);
-			}	
+		
 			System.out.println("--------  MENU JOUEUR  --------");
-			System.out.println("-----------  MENU  -----------");
 			System.out.println("0 -  QUITTER");
 			System.out.println("1 -  NOUVELLE PARTIE");
 			System.out.println("2 -  REJOINDRE UNE PARTIE");
 			System.out.println("choisir option: "); 
-			num= lireEntier();
-			
-		}
-				
-		
-		
+			int num= lireEntier();
+
 	} 
 		
+	
 	public static void menuAdministrateur() {
 		System.out.println("--------  MENU ADMINISTRATEUR  --------");
 		
+		System.out.println("0 -  QUITTER");
+		System.out.println("1 - AFFICHER PARTIES ");
+		System.out.println("2 -  ");
+		System.out.println("3 -  ");
+		System.out.println("choisir option: "); 
+		int num= lireEntier();
 		
 		
-		
-		
-		
-		
+	
 	}
 	
 	
