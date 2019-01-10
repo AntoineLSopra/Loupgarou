@@ -25,7 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("loupgarou.datajpa")
+@EnableJpaRepositories("fr.loupgarou.datajpa")
 @PropertySource("classpath:data-sources.properties")
 public class JPAConfig {
 
