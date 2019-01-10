@@ -164,35 +164,6 @@ public class Principale {
 			System.out.println("Connexion échouée");
 			return i;
 		}
-		//SI daoUser.connecJoueur == null ==> potentiellement un admin
-		//SI daoUser.connectAdmin == null ==> mauvais login
-		
-		
-		
-		
-//		int i = 0;
-//		Utilisateur unUser = new Utilisateur();
-//		try {
-//			System.out.println("Connexion de joueur en cours");
-//			daoUtilisateur.connexionJoueur(username, password);
-//			
-//				System.out.println("Bienvenue : " + username);
-//				return i = 1;
-//		}
-//		
-//		catch (Exception e) {
-//				try {
-//					System.out.println("Connexion de administrateur en cours");
-//					daoUtilisateur.connexionAdministrateur(username, password);
-//					System.out.println("Bienvenue adm : " + unUser.getUsername());
-//					return i = 2;	
-//				}
-//				
-//				catch (Exception e2) {
-//					System.out.println("Connexion échouée");
-//					return i;	
-//				}
-//		}
 	}
 		
 		
