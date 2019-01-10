@@ -4,10 +4,9 @@ import javax.persistence.*;
 
 @Entity
 public class Participation {
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="PTN_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PTN_ID")
 	private int id;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -57,14 +56,13 @@ public class Participation {
 	public void setPersonnage(Personnage personnage) {
 		this.personnage = personnage;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-	
+	}	
 	
 }
