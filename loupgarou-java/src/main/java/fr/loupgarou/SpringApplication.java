@@ -3,7 +3,9 @@ package fr.loupgarou;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import eshop.config.AppConfig;
+import fr.loupgarou.config.AppConfig;
+
+
 
 
 public class SpringApplication {
