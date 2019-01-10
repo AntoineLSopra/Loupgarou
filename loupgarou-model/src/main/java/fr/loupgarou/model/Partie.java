@@ -1,5 +1,8 @@
 package fr.loupgarou.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,16 +15,17 @@ public class Partie {
 	private int id;
 	
 	//A FAIRE
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne //(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="PAR_HISTOIRE_ID")
 	private Histoire histoire;
 	
 	//A FAIRE
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name="PAR_CAPITAINE_ID")
 	private Joueur capitaine;
 	
-	
+	@OneToMany(mappedBy="partie")
+	private List<Message> discussion;
 	
 	public int getId() {
 		return id;
@@ -40,6 +44,12 @@ public class Partie {
 	}
 	public void setCapitaine(Joueur capitaine) {
 		this.capitaine = capitaine;
+	}
+	public List<Message> getDiscussion() {
+		return discussion;
+	}
+	public void setDiscussion(List<Message> discussion) {
+		this.discussion = discussion;
 	}
 
 

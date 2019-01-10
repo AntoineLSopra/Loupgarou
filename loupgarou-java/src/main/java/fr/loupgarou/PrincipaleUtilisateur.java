@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import fr.loupgarou.*;
 import fr.loupgarou.dao.*;
 import fr.loupgarou.dao.sql.*;
@@ -35,8 +38,8 @@ public class PrincipaleUtilisateur {
 		
 		
 /////////////////   SQL  /////////////////////	
-		
-//		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL();
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("loupgarou");
+		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL(emf);
 		
 //		METHODE FINDBYID
 //		int id = 5;
@@ -59,7 +62,7 @@ public class PrincipaleUtilisateur {
 //					System.out.println("Le username " + u.getUsername());
 //		}
 		
-//		CREER UN UTILISATEUR
+////		CREER UN UTILISATEUR
 //		Utilisateur nouvelUtilisateur = new Utilisateur();
 //		Scanner sc = new Scanner(System.in);
 //		
@@ -80,7 +83,7 @@ public class PrincipaleUtilisateur {
 //		String d = sc.next();
 //		nouvelUtilisateur.setPassword(d);
 //		daoUtilisateur.save(nouvelUtilisateur);
-		
+//		emf.close();
 		
 //		SUPPRIMER UTILISATEUR
 //		daoUtilisateur.deleteById(22);
@@ -115,7 +118,7 @@ public class PrincipaleUtilisateur {
 		
 
 		
-		
+	
 	}	
 		
 }
