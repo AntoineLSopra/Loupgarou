@@ -6,6 +6,8 @@ import javax.persistence.Persistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
+
+import fr.loupgarou.datajpa.IDAOPartie;
 import fr.loupgarou.datajpa.IDAOUtilisateur;
 import fr.loupgarou.model.*;
 
@@ -13,6 +15,10 @@ public class Principale {
 		
 	@Autowired(required = false)
 	private IDAOUtilisateur daoUtilisateur;
+	
+	@Autowired(required = false)
+	private IDAOPartie daoPartie;
+	
 	//@Transactional
 	public void  run (String[] args)   {
 		
@@ -76,22 +82,26 @@ public class Principale {
 			System.out.println("--------  MENU ADMINISTRATEUR  --------");
 			System.out.println("0 -  QUITTER");
 			System.out.println("1 - TROUVER UTILISATEUR");
+			System.out.println("2 - LISTER UTILISATEURS");
+			System.out.println("3 - LISTER PARTIES");
 			System.out.println("choisir option: "); 
 			int num= lireEntier();
 			
 			if (num == 1) {
 				trouverUtilisateur();
 			}
-			
 			else if (num == 2) {
-				System.out.println("A FAIRE: ");
+				listerUtilisateurs();
+			}
+			else if (num == 3) {
+				listerParties();
 			}
 		}	
 	}
 	
 	
 
-	public int connexion () {
+	public int connexion (String use, String pass) {
 	    int i = 0;
 	//   System.out.println(daoUtilisateur.connexionJoueur("AntoineL", "0000"));
 	    System.out.println(daoUtilisateur.connexionJoueur("Jerem", "0000"));
@@ -162,7 +172,27 @@ public class Principale {
 			System.out.println("---------------------------");
 		}
 	}
-	
 
+	public void listerUtilisateurs() {
+		
+		System.out.println("-----------------------LISTE DES UTILISATEURS------------------------");
+		
+			for (Utilisateur u: ((IDAOUtilisateur)daoUtilisateur).findAll()) {
+				System.out.println(u.getId() + " | " + u.getNom()+ " | " + u.getPrenom()); 
+				System.out.println("---------------------------");
+			}
+		}
+
+	public void listerParties() {
+		
+		System.out.println("-----------------------LISTE DES PARTIES------------------------");
+		
+			for (Partie p: ((IDAOPartie)daoPartie).findAll()) {
+				System.out.println("-----------PARTIE " + p.getId() + "-----------");
+				System.out.println("Histoire: " + p.getHistoire());
+				System.out.println("Capitaine: " + p.getCapitaine());
+				System.out.println("---------------------------");
+			}
+		}
 	
 }
