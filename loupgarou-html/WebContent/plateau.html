@@ -8,6 +8,7 @@
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
 	</head>
 	<body>  
 		<nav>
@@ -28,30 +29,46 @@
   		
 		<section>
 			<div class="container">
-					       <h2>Plateau:</h2>
-					       <br />
-					       <form class="boutons">
-					      	 <div class="row">
-								<div class="col  justify-content">
-							  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg" >Liste des Cartes</button>
-							  	</div>	
-							  	<div class="col justify-content">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Créer Carte</button>
-							  	</div>
-							 </div> 	 	
-							 <br />
-							 <div class="row"> 	
-							  	<div class="col justify-content-center">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Modifier Carte</button>
-							  	</div>
-							  	<div class="col justify-content-center">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Supprimer Carte</button>
-							  	</div>
-							  </div> 
-						  </form>
-					</div>
-	 	</section>	
-	 	 
+					       <h2>Plateau de jeu</h2>
+					       <br />   
+			</div>
+	 	</section>
+	 	<div id="colonnes">
+	 	<section class="container" id="menuPartie">
+	 	<form id="etatJoueur">
+	 	<p>Statut Joueur</p>
+	 	</form>
+	 	<br />
+	 	<form id="pouvoirPersonnage">
+	 	<p>Pouvoir</p>
+	 	</form>
+	 	<br />
+	 	<form id="statutJour">
+	 	<p>Notification</p>
+	 	</form>
+	 	</section>
+	 	
+	 	<section class="container" id="deroulementPartie">
+	 	<form id="statutJoueurs">
+	 	<p>Affichage des joueurs</p>
+	 	</form>
+	 	<br />
+	 	<form id="chat">
+	 	<p>Chat></p>
+	 	</form>
+	 	</section>
+	 	
+	 	<section class="container" id="organisationPartie">
+	 	<form id="compositionJeu">
+	 	<p>Composition de la partie</p>
+	 	</form>
+	 	<br />
+	 	<form id="listeJoueurs">
+	 	<p>Liste des joueurs
+	 	</p>
+	 	</form>
+	 	</section>
+	 	</div> 
 	 	<footer class= "container fixed-bottom"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
 	 	</footer>
@@ -69,7 +86,6 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 			crossorigin="anonymous"></script>
-		<script src="javascript.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
 	</body>
 </html>
