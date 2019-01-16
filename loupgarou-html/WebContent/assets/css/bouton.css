@@ -9,10 +9,15 @@ form.boutons {
 	margin: 0 auto;
 }
 
+form.boutonsAccueil{
+	width: 50%;
+	margin: 0 auto;
+}
+
 body {
 	background-color : #DBC788
 }
-}
+
 
 section#connexion,
 section[id="inscription"] {
