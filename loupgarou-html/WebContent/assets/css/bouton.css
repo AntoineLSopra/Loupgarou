@@ -9,6 +9,26 @@ form.boutons {
 	margin: 0 auto;
 }
 
+button.enregistrer {
+	background-color: green;
+    border-style: hidden;
+}
+
+button.annuler {
+	background-color: red;
+    border-style: hidden;
+}
+
+form.perso {
+	width: 60%;
+	margin: 0 auto;
+}
+
+form.check {
+	width: 40%;
+	margin: 0 auto;
+}
+
 form.boutonsAccueil{
 	width: 50%;
 	margin: 0 auto;
@@ -21,5 +41,10 @@ body {
 
 section#connexion,
 section[id="inscription"] {
+	display:none;
+}
+
+
+section#liste-personnages, section#creer-personnage, section#modifier-personnage, section#supprimer-personnage{
 	display:none;
 }

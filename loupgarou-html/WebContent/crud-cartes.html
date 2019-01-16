@@ -3,7 +3,7 @@
 	<head>
 		<base href="/loupgarou-html/" />
 		<meta charset="UTF-8" />
-		<title>CRUD des Cartes</title>
+		<title>Loup-Garou | Personnages</title>
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
@@ -25,37 +25,170 @@
   		</header> 
   		
   		<br /> <br />
-  		
-		<section>
+  			
+		<section id = menu>
 			<div class="container">
-					       <h2>CRUD des Cartes:</h2>
-					       <br />
-					       <form class="boutons">
-					      	 <div class="row">
-								<div class="col  justify-content">
-							  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg" >Liste des Cartes</button>
-							  	</div>	
-							  	<div class="col justify-content">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Créer Carte</button>
-							  	</div>
-							 </div> 	 	
-							 <br />
-							 <div class="row"> 	
-							  	<div class="col justify-content-center">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Modifier Carte</button>
-							  	</div>
-							  	<div class="col justify-content-center">
-							  		<button type="submit" value="Envoyer"  class="btn btn-primary btn-lg" >Supprimer Carte</button>
-							  	</div>
-							  </div> 
-						  </form>
-					</div>
+		       <h2>Menu Personnage:</h2>
+		       	<br />
+		       <form class="boutons">
+		      	 <div class="row">
+					<div class="col  justify-content"> 
+				  		<a class="btn btn-primary btn-lg" href="#liste-personnages" >Liste des Personnages</a>
+				  	</div>	
+				  	<div class="col justify-content">
+				  		<a class="btn btn-primary btn-lg" href="#creer-personnage" >Créer Personnage</a>
+				  	</div>
+				 </div> 	 	
+				 <br />
+				 <div class="row"> 	
+				  	<div class="col justify-content-center" >
+				  		<a class="btn btn-primary btn-lg"  href="#modifier-personnage" >Modifier Personnage</a>
+				  	</div>
+				  	<div class="col justify-content-center">
+				  		<a  class="btn btn-primary btn-lg"  href="#supprimer-personnage" >Supprimer Personnage</a>
+				  	</div>
+				  </div> 
+			  </form>
+			</div>
 	 	</section>	
-	 	 
+	 	
+	 	<br /><br /><br /><br />
+	 		
+	 	<section id = liste-personnages>
+	 		<div class="container">
+	 			<h2>Liste des Personnages</h2>
+	 			<br />
+				<table id="tableau1" class="table table-striped">
+					  <thead class = table-dark >
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Nom du Personnage</th>
+					      <th scope="col">Pouvoir</th>					
+					   	</tr>
+					  </thead>
+					  <tbody>
+					  	<tr>
+							<th scope="row">1</th>
+							<td>Villageois</td>
+							<td>Aucun</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Loup-Garou</td>
+							<td>Tuer les villageois</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Voyante</td>
+							<td>Découvrir la carte d'un joueur</td>
+						</tr>
+					  </tbody>
+				</table>
+	 		</div>
+	 	</section>	
+	 	
+	 		
+	 	<section id = creer-personnage>
+		 	<div class="container">
+		 		<h2>Creation d'un Personnage</h2>
+		 		<br /> <br /> <br />
+		 		<form class="perso">
+			 		<div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="personame" name="personame" placeholder="loup-garou" />
+				        </div>
+			        </div>
+			        <div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Pouvoir:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="persopouvoir" name="persopouvoir" placeholder="manger les petits villageois" />
+				        </div>
+			        </div>
+		        </form>	
+		        <br /> <br />
+		        <form class="check">
+			        <div class="row">
+						<div class="col  justify-content"> 
+					  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg enregistrer" >Enregistrer</button>
+					  	</div>	
+					  	<div class="col  justify-content"> 
+					  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+					  	</div>	
+					</div>	
+				</form>		 	
+	 		</div>
+	 	</section>
+	 	
+	 		
+	 	<section id = modifier-personnage>
+	 		<div class="container">
+		 		<h2>Modification d'un Personnage</h2>
+		 		<br />	<br /> <br />
+		 		<form class="perso">
+			 		<div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="personame" name="personame" placeholder="loup-garou" />
+				        </div>
+			        </div>
+			        <div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Nouveau Pouvoir:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="persopouvoir" name="persopouvoir" placeholder="manger les petits villageois" />
+				        </div>
+			        </div>
+		        </form>
+		        <br /> <br />
+	            <form class="check">
+		        <div class="row">
+					<div class="col  justify-content"> 
+				  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg enregistrer" >Enregistrer</button>
+				  	</div>	
+				  	<div class="col  justify-content"> 
+				  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+				  	</div>	
+				</div>	
+				</form>	
+	 		</div>
+	 	</section>
+	 	
+	 	
+	 	<section id = supprimer-personnage>
+	 		<div class="container">
+	 			<h2>Suppression d'un Personnage</h2>
+	 			<br />	<br /> <br />
+	 			<form class="perso">
+			 		<div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="personame" name="personame" placeholder="loup-garou" />
+				        </div>
+			        </div>
+			      	<div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Confirmer Nom:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="persoconfirmation" name="persoconfirmation" placeholder="loup-garou" />
+				        </div>
+			        </div>
+		        </form>
+		        <br /> <br />
+		        <form class="check">
+		        <div class="row">
+					<div class="col  justify-content"> 
+				  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg enregistrer" >Enregistrer</button>
+				  	</div>	
+				  	<div class="col  justify-content"> 
+				  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+				  	</div>	
+				</div>	
+				</form>	
+	 		</div>
+	 	</section>
+	 	
 	 	<footer class= "container fixed-bottom"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
 	 	</footer>
-	 	
 	 	<script
 			src="https://code.jquery.com/jquery-3.3.1.js"
 			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -71,5 +204,6 @@
 			crossorigin="anonymous"></script>
 		<script src="javascript.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+	 	<script src="assets/js/affichageCrud-cartes.js"></script>
 	</body>
 </html>
