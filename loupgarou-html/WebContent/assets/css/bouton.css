@@ -4,28 +4,27 @@
     width: 100% !important;}
 
     
+.btn-success {
+	border-style: hidden;
+}    
+    
 form.boutons {
 	width: 80%;
 	margin: 0 auto;
 }
 
-button.enregistrer {
+.enregistrer {
 	background-color: green;
-    border-style: hidden;
+	border-style: hidden;
 }
 
 button.annuler {
 	background-color: red;
-    border-style: hidden;
+	border-style: hidden;
 }
 
 form.perso {
 	width: 60%;
-	margin: 0 auto;
-}
-
-form.check {
-	width: 40%;
 	margin: 0 auto;
 }
 
@@ -34,8 +33,20 @@ form.boutonsAccueil{
 	margin: 0 auto;
 }
 
+form.check {
+	width: 40%;
+	margin: 0 auto;
+}
+
+form.unique {
+	width: 15%;
+	margin: 0 auto;
+}
+
+
+
 body {
-	background-color : #DBC788
+	background-color : #DBC788;
 }
 
 
