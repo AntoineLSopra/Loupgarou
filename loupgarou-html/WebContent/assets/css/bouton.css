@@ -1,3 +1,14 @@
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #663300;
     border-style: hidden;
+    width: 100% !important;}
+
+    
+form.boutons {
+	width: 80%;
+	margin: 0 auto;
+}
+
+body {
+	background-color : #DBC788
+}
