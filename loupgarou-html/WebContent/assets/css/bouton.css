@@ -1,3 +1,9 @@
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #663300;
     border-style: hidden;
+}
+
+section#connexion,
+section[id="inscription"] {
+	display:none;
+}
