@@ -12,3 +12,9 @@ form.boutons {
 body {
 	background-color : #DBC788
 }
+}
+
+section#connexion,
+section[id="inscription"] {
+	display:none;
+}
