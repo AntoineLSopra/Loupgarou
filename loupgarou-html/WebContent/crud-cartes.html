@@ -34,6 +34,7 @@
 		      	 <div class="row">
 					<div class="col  justify-content"> 
 				  		<a class="btn btn-primary btn-lg" href="#liste-personnages" >Liste des Personnages</a>
+				  		<input type="submit" value="Envoyer" onclick='recupererPersonnages(); return false;' />
 				  	</div>	
 				  	<div class="col justify-content">
 				  		<a class="btn btn-primary btn-lg" href="#creer-personnage" >Créer Personnage</a>
@@ -67,7 +68,7 @@
 					   	</tr>
 					  </thead>
 					  <tbody>
-					  	<tr>
+					  	<!-- <tr>
 							<th scope="row">1</th>
 							<td>Villageois</td>
 							<td>Aucun</td>
@@ -81,7 +82,7 @@
 							<th scope="row">3</th>
 							<td>Voyante</td>
 							<td>Découvrir la carte d'un joueur</td>
-						</tr>
+						</tr> -->
 					  </tbody>
 				</table>
 	 		</div>
@@ -202,8 +203,8 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 			crossorigin="anonymous"></script>
-		<script src="javascript.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
 	 	<script src="assets/js/affichageCrud-cartes.js"></script>
+	 	<script src="assets/js/recuperationCartes.js"></script>
 	</body>
 </html>

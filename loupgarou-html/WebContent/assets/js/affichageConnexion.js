@@ -2,7 +2,7 @@
  * 
  */
 
-$('div a').bind('click', function() {
+$('form[id="connexion-inscription"] a').bind('click', function() {
 //	alert("A MALIBU");
 //	this -> lien cliqué
 //	alert($(this).attr('href'));
