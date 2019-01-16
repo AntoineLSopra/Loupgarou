@@ -1,0 +1,26 @@
+section#menuPartie {
+	float:left;
+	width: 35%;
+	background: lightblue;
+}
+
+section#deroulementPartie {
+	margin-right:1%;
+	margin-left:1%;
+	background: burlywood;
+}
+
+section#organisationPartie {
+	float:right;
+	width: 35%;
+	background: darkgreen;
+}
+
+div#colonnes {
+	display:flex;
+}
+
+form {
+	border: 1px solid black;
+    border-radius: 1px;
+}
