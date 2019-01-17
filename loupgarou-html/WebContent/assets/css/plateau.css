@@ -1,26 +1,127 @@
 section#menuPartie {
 	float:left;
-	width: 35%;
-	background: lightblue;
+	width: 40%;
+
 }
 
 section#deroulementPartie {
-	margin-right:1%;
-	margin-left:1%;
-	background: burlywood;
+	background: #c0c0c0;
+	border-radius:15px;
 }
 
 section#organisationPartie {
 	float:right;
-	width: 35%;
-	background: darkgreen;
+	width:40%;
 }
+
+.bloc{
+
+	margin-top:2%;
+
+}
+
+.bloctitre{
+	background: #954a00 ;
+	padding: 5%;
+	border-radius:15px;
+	border-bottom-right-radius:0px;
+ 	border-bottom-left-radius:0px;
+ 	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	max-height: 50px;
+}
+
+.bloccontenu{
+	background: #b36700;
+	padding: 5%;
+	border-radius:15px;
+	border-top-right-radius:0px;
+ 	border-top-left-radius:0px;
+ 	padding: 5%;
+}
+
+
+.img-cartes {
+	width:60px;
+	height:60px;
+	margin-right:1%;
+	margin-left:1%;
+}
+
+.avatar {
+	width:20px;
+	height:20px;
+	margin-right:1%;
+	margin-left:1%;
+}
+
+.chat{
+  border: 2px solid #dedede;
+  border-bottom: 0px solid ;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  border-bottom-right-radius:0px;
+  border-bottom-left-radius:0px;
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
+  margin-bottom: 0px 0;
+}
+
+.message{
+	border: 2px solid #dedede;
+	border-top: 0px solid;
+ 	background-color: #f1f1f1;
+  	border-radius: 5px;
+  	border-top-right-radius:0px;
+ 	border-top-left-radius:0px;
+  	padding: 10px;
+  	margin: 0px 0;
+}
+
+.time-right {
+  color: #aaa;
+}
+
+.largeur {
+	display: flex;
+    justify-content: center;
+}
+
+
 
 div#colonnes {
 	display:flex;
+	
+	
 }
 
 form {
 	border: 1px solid black;
-    border-radius: 1px;
+
 }
+
+body{
+	
+	background-color:#d0d2d1;
+}
+
+
+.gras {
+	color: dark;
+	font: 20px;
+	font-weight: 700;
+}
+
+.dore {
+	color: dark;
+	font: 20px;
+	font-weight: 500;
+}
+
+.espace {
+	line-height: 400%;
+}
+
+
