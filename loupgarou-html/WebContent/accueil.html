@@ -8,18 +8,42 @@
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
 	</head>
 	<body>  
-		<nav>
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="index.html">ACCUEIL</a>
+			<img class="avatar" src= "img\villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			
-		</nav> 	
+			<!-- Menu à proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<div class="col"> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="personnages.html">Gestion des cartes</a></li>
+						<li class="nav-item"><a class="nav-link" href="plateau.html">Jouer</a></li>
+					</ul>
+				</div>
+				<div> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>	
 		
 		<br />
 		
 		<header class="container">
 			<div class="row justify-content-center">
 				<div class="col-8 text-center">
-     				<h1> LOUP-GAROU </h1>
+     				<h1> BIENVENUE JOUEUR #1 </h1>
      			</div>
 			</div>
   		</header> 
@@ -28,17 +52,19 @@
   			
 		<section id = accueil>
 			<div class="container">
-		       <h2>Menu:</h2>
-		       	<br />
 		       <form class="boutons">
 		      	 <div class="row">
-					<div class="col  justify-content"> 
+				  	<div class="col justify-content">
+						<a class="btn btn-primary" href="plateau.html">JOUER</a>
+				  	</div>
+				  	<br /> 	<br /> 
+				 </div> 	
+				  <div class="row">
+				 	<div class="col  justify-content"> 
 						<a class="btn btn-primary enregistrer" href="crud-cartes.html">Menu Personnages</a>
 				  	</div>	
-				  	<div class="col justify-content">
-						<a class="btn btn-primary enregistrer" href="plateau.html">Plateau de jeu</a>
-				  	</div>
-				 </div> 	 	
+				  </div> 
+				  	
 			  </form>
 			</div>
 	 	</section>	
