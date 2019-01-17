@@ -1,7 +1,7 @@
 function createRowPersonnage(personnage) {
 	//CREATION DES COLONNES	
 	var myColId = $('<td />');
-	var myColLibelle = $('<td>'+ carte.libelle + '</td>');
+	var myColLibelle = $('<td>'+ personnage.libelle + '</td>');
 	var myColPouvoir = $('<td />');
 	
 	//AFFECTER LES VALEURS AUX COLONNES
