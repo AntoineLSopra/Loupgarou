@@ -1,40 +1,3 @@
-function createRowPersonnage(personnage) {
-	//CREATION DES COLONNES	
-	var myColId = $('<td />');
-	var myColLibelle = $('<td>'+ personnage.libelle + '</td>');
-	var myColPouvoir = $('<td />');
-	
-	//AFFECTER LES VALEURS AUX COLONNES
-	myColId.html(personnage.id);
-//	myColNom.html(monProduit.nom);
-	myColPouvoir.html(personnage.pouvoir.libelle);
-
-	//CREATION DE LA LIGNE
-	var myLigne = $('<tr />');
-	
-	
-	//ASSOCIER LES COLONNES A LA LIGNE
-	myLigne.append(myColId);
-	myLigne.append(myColLibelle);
-	myLigne.append(myColPouvoir);
-	
-	
-	//INSERER LA LIGNE AU TABLEAU
-	$('table tbody').append(myLigne);
-}
-
-function createListeDeroulantePersonnage(personnage){
-	//CREATION DES LIGNES
-	var myId = $('<option value="'+ personnage.id + '">' + personnage.libelle + '</option>');
-	
-	//INSERER LA LIGNE AU TABLEAU
-	$('select[class="form-control perso"]').append(myId);
-}
-
-function deleteRowPersonnage() {
-	$('table tbody td').remove();
-}
-
 function rafraichir() {
 	deleteRowPersonnage();
 	$.ajax({
@@ -47,12 +10,77 @@ function rafraichir() {
 		*/
 		for (personnage of personnages) {
 			createRowPersonnage(personnage);
-			createListeDeroulantePersonnage(personnage);
 		}
-		}
+		$('tr td input[value="Modifier"]').bind('click', function(){
+			//je pars du bouton(this) je remonte  la racine (tr) du bouton, je cherche dans la racine(tr) le champe de saisie (input[class="input-field"]) e et je l'affiche
+//			$(this).closest('tr').find('input[value="Supprimer"]').hide();
+			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
+			$(this).closest('tr').find('td span').hide();
+			$(this).closest('tr').find('input[class="input-field perso"]').show();
+			$(this).closest('tr').find('select[class="form-control perso"]').show();
+			$(this).closest('tr').find('input[id="ValiderModif"]').show();
+			$(this).closest('tr').find('input[id="cancel"]').show();
+			return false;
 		});
+		$('tr td input[id="ValiderModif"]').bind('click', function(){
+			//modifier le Personnage avec l'id de la ligne et le nouveau libellÃ©
+			modifierPersonnage($(this).closest('tr').data('id'), $(this).closest('tr').find('input[class="input-field"]').val());
+			//cacher des champs
+			$(this).closest('tr').find('input[class="input-field"]').hide();
+			$(this).closest('tr').find('input[id="ValiderModif"]').hide();
+			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
+			$(this).closest('tr').find('td span').show();
+			return false;
+		});
+		$('tr td input[value="Supprimer"]').bind('click', function(){
+			supprimerPersonnage($(this).closest('tr').data('id'));
+			return false;
+		});
+		$('tr td input[id="cancel"]').bind('click', function(){
+			$(this).closest('tr').find('input[class="input-field"]').hide();
+			$(this).closest('tr').find('input[id="ValiderModif"]').hide();
+//			$(this).closest('tr').find('input[value="Supprimer"]').hide();
+			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
+			$(this).closest('tr').find('td span').show();
+			rafraichir();
+			return false;
+		});
+	}
+});
 }
 
+
+function createRowPersonnage(personnage) {
+	//CREATION DES COLONNES	
+	var myColId = $('<td>' + personnage.id + '</td>');
+	var myColLibelle = $('<td> <span name="perso">' + personnage.libelle + '</span>'+
+			  '<input type="text" class="input-field perso" id="saisieNewNom" name="newNom" value="' + personnage.libelle + '" required/><br />  '+
+			  '<input class="btn btn-sucess" type="submit" id="ValiderModif" value="Valider"/> ' + 
+			  '<input class="btn btn-sucess" type="submit" id="cancel" value="Annuler" /></td>');
+
+	var myColPouvoir = ('<td>' +'<span name="pouv">' + personnage.pouvoir.libelle + '</span>' + '<select class="form-control pouv" name="newPouv"><option value="1" ' + ( (personnage.pouvoir.id == 1) ? "selected" : "" ) + '>Loup</option>' +
+			'<option value="2" ' + ( (personnage.pouvoir.id == 2) ? "selected" : "" ) + '>Villageois</option></select> </td>');
+	var myColButton = $('<td> <input class="btn btn-sucess" type="submit" value="Modifier"/>'+
+						' <input class="btn btn-sucess" type="submit" value="Supprimer"/> </td>');
+
+	//CREATION DE LA LIGNE
+	var myLigne = $('<tr />');
+	
+	
+	//ASSOCIER LES COLONNES A LA LIGNE
+	myLigne.append(myColId);
+	myLigne.append(myColLibelle);
+	myLigne.append(myColPouvoir);
+	myLigne.append(myColButton);
+	
+	//INSERER LA LIGNE AU TABLEAU
+	$('table tbody').append(myLigne);
+}
+
+
+function deleteRowPersonnage() {
+	$('table tbody td').remove();
+}
 	
 
 function envoyerPersonnage() {
@@ -75,19 +103,19 @@ function envoyerPersonnage() {
 		Si type application/json, alors objet littéral
 		*/
 			createRowPersonnage(personnage);
-			rafraichir;
+			rafraichir();
 		}
 		});
 }
 
-function modifierPersonnage(){
+function modifierPersonnage(id, libelle, pouvId){
 	var monPersonnage = {
-		id: $('select[name="nomPersonnage"]').val(),
-		libelle : $('input[name="newNom"]').val(),
+		id: id,
+		libelle : libelle,
 		pouvoir: {
-			id: $('select[name="pouvoir"]').val()
+			id: pouvId
 		}
-	};
+		}
 	//REQUETE AJAX POUR AJOUTER LE PRODUIT
 	$.ajax({
 		method : 'POST',
@@ -100,14 +128,11 @@ function modifierPersonnage(){
 	});
 }
 
-function supprimerPersonnage(){
-	var monPersonnage = {
-		id: $('select[name="nomPersonnageSupp"]').val()
-	}
+function supprimerPersonnage(id){
 	//REQUETE AJAX POUR AJOUTER LE PRODUIT
 	$.ajax({
 		method : 'DELETE',
-		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + monPersonnage.id,
+		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + id,
 		success : function(personnage) {		//LA REPONSE DU SERVEUR
 			rafraichir();
 		}
@@ -115,6 +140,16 @@ function supprimerPersonnage(){
 }
 
 rafraichir();
+
+
+
+//function createListeDeroulantePersonnage(personnage){
+//	//CREATION DES LIGNES
+//	var myId = $('<option value="'+ personnage.id + '">' + personnage.libelle + '</option>');
+//	
+//	//INSERER LA LIGNE AU TABLEAU
+//	$('select[class="form-control perso"]').append(myId);
+//}
 
 //var eventSource = new EventSource("http://192.168.1.110/formation-html-js/produit/listen-new")
 //
