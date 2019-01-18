@@ -13,7 +13,7 @@
 	</head>
 	<body>  
 		<nav class="navbar navbar-expand-lg">
-			<a class="navbar-brand" href="index.html">ACCUEIL</a>
+			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
 			<img class="avatar" src= "img\villageois-old.jpg">
 			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -21,7 +21,6 @@
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			
 			<!-- Menu à proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<div class="col"> 		
@@ -37,38 +36,77 @@
 				</div>
 			</div>
 		</nav>	
-		
-		<br />
-		
-		<header class="container">
-			<div class="row justify-content-center">
-				<div class="col-8 text-center">
-     				<h1> BIENVENUE JOUEUR #1 </h1>
-     			</div>
-			</div>
-  		</header> 
-  		
-  		<br /> <br />
-  			
-		<section id = accueil>
-			<div class="container">
-		       <form class="boutons">
-		      	 <div class="row">
-				  	<div class="col justify-content">
-						<a class="btn btn-primary" href="plateau.html">JOUER</a>
-				  	</div>
-				  	<br /> 	<br /> 
-				 </div> 	
-				  <div class="row">
-				 	<div class="col  justify-content"> 
-						<a class="btn btn-primary enregistrer" href="personnages.html">Menu Personnages</a>
-				  	</div>	
-				  </div> 
-				  	
-			  </form>
-			</div>
-	 	</section>	
+
+		<div id="colonnes">
+		 	<section class="container" id="menuPartie">
+				<div class=bloc> 
+					<div class="row justify-content-center ">
+						<img class=avatarmaxi src= "img\profil.png">
+					</div>	
+					<div class= bloctitre>
+				 		<p class="col-12 text-center">JOUEUR #1</p>
+				 	</div>
+				 	<div class= bloccontenu>
+					 	<div class="row ">
+					 		<p > Niveau: 4 <br/> Parties jouées: 8 <br/> Parties gagnées: 6</p>
+					 	</div>
+					</div> 
+				 </div> 
+	 		</section>
 	 	
+		 	<section class="container" id="deroulementPartie">
+	 			<header class="container">
+					<div class="row justify-content-center">
+						<div class="col-8 text-center">
+		     				<h1> BIENVENUE JOUEUR #1 </h1><br /><br />
+		     			</div>
+					</div>
+		  		</header> 
+		 		<div class="blocaccueil">
+				 	<div class="row ">
+						 <div class="col-8 text-left">
+			     			<h5> Révisez les régles !</h5>
+			     		</div>
+			     	</div>
+					 <div class="row justify-content-center">
+				     	<iframe width="800" height="315" src="https://www.youtube.com/embed/qAfG6F7UZsI?rel=0" ></iframe>
+				 	</div> 	
+				 	<div class="row" >
+				 	
+				 	</div> 
+				 </div>
+				 <br /><br />
+		 	</section>
+		 	
+		 	<section class="container" id="organisationPartie">
+		 		<div class= bloc>
+		 		 	<div class= bloctitre>
+				 		<p class="col-12 text-center">JOUER</p>
+				 	</div>
+				 	<div class= bloccontenu>
+				 	<br />
+					 	<div class="row justify-content-center">
+						 	<a class=" enregistrer btn btn-success"  href="plateau.html">Rejoindre Partie</a>
+					 	</div>
+					 	<br />
+					 	<div class="row justify-content-center">
+						 	<a class=" enregistrer btn btn-success"  href="plateau.html">Créer Partie</a>
+					 	</div>
+					 <br />
+					 </div>
+					 <div class= bloc>
+					 	<div class=bloctitre>
+						 	<p class="col-12 text-center">IDEE ?</p>
+						</div>
+						<div class=bloccontenu>	
+							sdzzfdgrfg
+					 	</div>
+				 	</div>
+			 	</div>
+		 	</section>
+	 	</div> 
+	 	
+  		<br /> <br />
 	 	<footer class= "container text-center"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
 	 	</footer>
