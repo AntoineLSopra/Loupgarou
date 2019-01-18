@@ -17,7 +17,7 @@ function rafraichir() {
 			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
 			$(this).closest('tr').find('td span').hide();
 			$(this).closest('tr').find('input[class="input-field perso"]').show();
-			$(this).closest('tr').find('select[class="form-control perso"]').show();
+			$(this).closest('tr').find('select[class="form-control pouv"]').show();
 			$(this).closest('tr').find('input[id="ValiderModif"]').show();
 			$(this).closest('tr').find('input[id="cancel"]').show();
 			return false;
