@@ -55,8 +55,23 @@ section[id="inscription"] {
 	display:none;
 }
 
+button[name="AjouterPerso"] {
+	background: rgb(186, 61, 12);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+}
 
-td input[value="Modifier"]{
+button[name="AnnulerAjoutPerso"] {
+	background: rgb(166, 42, 18);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+}
+
+
+td input[value="Modifier"]
+{
 	position: relative;
 	top: 0;
 	width: 100px;
@@ -71,7 +86,8 @@ td input[value="Modifier"]{
 	cursor: pointer;
 	transition: all 0.25s ease;
 }
-td input[value="Supprimer"]{
+td input[value="Supprimer"]
+{
 	position: relative;
 	top: 0;
 	width: 100px;
@@ -86,7 +102,7 @@ td input[value="Supprimer"]{
 	transition: all 0.25s ease;
 }
 
-td input[id="ValiderModif"]{
+td input[id="Valider"]{
  	display: none;
 	position: relative;
 	top: 0;
@@ -136,3 +152,10 @@ td br{
 	position: relative;
 	top: 10px;
 }
+
+.form-control.pouv {
+	display: none;
+}
+
+form select[name="pouvoir"], input[name="libelle"]{
+	width: 200px;
