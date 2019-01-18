@@ -18,16 +18,18 @@ function rafraichir() {
 			$(this).closest('tr').find('td span').hide();
 			$(this).closest('tr').find('input[class="input-field perso"]').show();
 			$(this).closest('tr').find('select[class="form-control pouv"]').show();
-			$(this).closest('tr').find('input[id="ValiderModif"]').show();
+			$(this).closest('tr').find('input[value="Valider"]').show();
 			$(this).closest('tr').find('input[id="cancel"]').show();
 			return false;
 		});
-		$('tr td input[id="ValiderModif"]').bind('click', function(){
+		$('tr td input[value="Valider"]').bind('click', function(){
 			//modifier le Personnage avec l'id de la ligne et le nouveau libellÃ©
-			modifierPersonnage($(this).closest('tr').data('id'), $(this).closest('tr').find('input[class="input-field"]').val());
+			modifierPersonnage($(this).closest('tr').data('id'), $(this).closest('tr').find('input[class="input-field perso"]').val(),
+					$(this).closest('tr').find('select[name="newPouv"]').val());
 			//cacher des champs
-			$(this).closest('tr').find('input[class="input-field"]').hide();
-			$(this).closest('tr').find('input[id="ValiderModif"]').hide();
+			$(this).closest('tr').find('input[class="input-field perso"]').hide();
+			$(this).closest('tr').find('select[class="form-control pouv"]').hide();
+			$(this).closest('tr').find('input[value="Valider"]').hide();
 			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
 			$(this).closest('tr').find('td span').show();
 			return false;
@@ -37,8 +39,9 @@ function rafraichir() {
 			return false;
 		});
 		$('tr td input[id="cancel"]').bind('click', function(){
-			$(this).closest('tr').find('input[class="input-field"]').hide();
-			$(this).closest('tr').find('input[id="ValiderModif"]').hide();
+			$(this).closest('tr').find('input[class="input-field perso"]').hide();
+			$(this).closest('tr').find('select[class="form-control pouv"]').hide();
+			$(this).closest('tr').find('input[value="Valider"]').hide();
 //			$(this).closest('tr').find('input[value="Supprimer"]').hide();
 			$(this).closest('tr').find('input[value="Supprimer"]').attr('disabled', false);
 			$(this).closest('tr').find('td span').show();
@@ -54,8 +57,8 @@ function createRowPersonnage(personnage) {
 	//CREATION DES COLONNES	
 	var myColId = $('<td>' + personnage.id + '</td>');
 	var myColLibelle = $('<td> <span name="perso">' + personnage.libelle + '</span>'+
-			  '<input type="text" class="input-field perso" id="saisieNewNom" name="newNom" value="' + personnage.libelle + '" required/><br />  '+
-			  '<input class="btn btn-sucess" type="submit" id="ValiderModif" value="Valider"/> ' + 
+			  '<input type="text" class="input-field perso" id="saisieNewNom" name="newNom" value=""' + personnage.libelle + '" required/><br />  '+
+			  '<input class="btn btn-sucess" type="submit" id="Valider" value="Valider"/> ' + 
 			  '<input class="btn btn-sucess" type="submit" id="cancel" value="Annuler" /></td>');
 
 	var myColPouvoir = ('<td>' +'<span name="pouv">' + personnage.pouvoir.libelle + '</span>' + '<select class="form-control pouv" name="newPouv"><option value="1" ' + ( (personnage.pouvoir.id == 1) ? "selected" : "" ) + '>Loup</option>' +
@@ -64,7 +67,7 @@ function createRowPersonnage(personnage) {
 						' <input class="btn btn-sucess" type="submit" value="Supprimer"/> </td>');
 
 	//CREATION DE LA LIGNE
-	var myLigne = $('<tr />');
+	var myLigne = $('<tr data-id = "' + personnage.id + '"/>');
 	
 	
 	//ASSOCIER LES COLONNES A LA LIGNE
@@ -118,8 +121,8 @@ function modifierPersonnage(id, libelle, pouvId){
 		}
 	//REQUETE AJAX POUR AJOUTER LE PRODUIT
 	$.ajax({
-		method : 'POST',
-		url : 'http://192.168.1.110/loupgarou-ajax/personnage',
+		method : 'PUT',
+		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + monPersonnage.id,
 		data : JSON.stringify(monPersonnage),	//CONVERTIR L'OBJET JS EN JSON
 		contentType : 'application/json',	//DE QUOI EST FAIT LE FLUX
 		success : function(personnage) {		//LA REPONSE DU SERVEUR
@@ -132,7 +135,7 @@ function supprimerPersonnage(id){
 	//REQUETE AJAX POUR AJOUTER LE PRODUIT
 	$.ajax({
 		method : 'DELETE',
-		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + id,
+		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + personnage.id,
 		success : function(personnage) {		//LA REPONSE DU SERVEUR
 			rafraichir();
 		}

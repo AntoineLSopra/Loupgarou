@@ -7,11 +7,35 @@
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" /><link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
 	</head>
 	<body>  
-		<nav>
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
+			<img class="avatar" src= "img\villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			
+			<!-- Menu à proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<div class="col"> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="personnages.html">Gestion des cartes</a></li>
+						<li class="nav-item"><a class="nav-link" href="plateau.html">Jouer</a></li>
+					</ul>
+				</div>
+				<div> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="accueil.html">Retour</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
 		</nav> 	
 		
 		<br />
@@ -34,7 +58,7 @@
 			 		<div class="form-group row">
 				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
 				        <div class="col">
-				            <input type="text" class="form-control" id="addPersonnage" name="addPersonnage" placeholder="loup-garou" />
+				            <input type="text" class="form-control" id="addPersonnage" name="addPersonnage" placeholder="Nom de Personnage" />
 				        </div>
 			        </div>
 			        <div class="form-group row">
@@ -51,10 +75,10 @@
 		        <form class="check">
 			        <div class="row">
 						<div class="col  justify-content"> 
-					  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg" onclick="envoyerPersonnage(); return false;">Enregistrer</button>
+					  		<button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg" onclick="envoyerPersonnage(); return false;">Enregistrer</button>
 					  	</div>	
 					  	<div class="col  justify-content"> 
-					  		<button type="submit" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+					  		<button type="submit" name="AnnulerAjoutPerso" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
 					  	</div>	
 					</div>	
 				</form>		 	
