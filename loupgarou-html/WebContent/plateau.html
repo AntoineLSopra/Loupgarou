@@ -7,64 +7,76 @@
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
 				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" /><link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
 	</head>
 	<body>  
-		<nav class="navbar navbar-expand-lg navbar-white bg-dark">
-			<a class="navbar-brand" href="index.html">Menu</a>
+	<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="index.html">ACCUEIL</a>
+			<img class="avatar" src= "img\villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">>
-				<ul class="navbar-nav" >
-	  			 <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
-	  			 <li class="nav-item"><a class="nav-link" href="produit.html">Produit</a></li>
-	  			 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-		    	</ul> 
-		    </div>
-		</nav> 	
-		
-		 <br />
-	 	
+			
+			<!-- Menu à proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<div class="col"> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="personnages.html">Gestion des cartes</a></li>
+						<li class="nav-item"><a class="nav-link" href="plateau.html">Jouer</a></li>
+					</ul>
+				</div>
+				<div> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="accueil.html">Retour</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 		<div id="colonnes">
 		 	<section class="container" id="menuPartie">
 				<div class= bloc>
-		 		 	<div class= bloctitre>
-				 		<p class="col-12 text-center">STATUT JOUEUR</p>
-				 	</div>
-				 	<div class= bloccontenu>
 					 	<div class="row ">
-					 		<div class="col espace"> 
-						 		<img class="img-cartes" src= "img\villageois-old.jpg">
+					 		<div class="col-sm-4"> 
+						 		<img  src= "img\profil.jpg">
+						 		<p> JOUEUR #1</p>
+					 		</div>
+					 		<div class="col "> 
+						 		<p > Niveau: 4 <br/> Parties jouées: 8 <br/> Parties gagnées: 6</p>
 					 		</div>
 					 	</div>
-					</div>	
+				</div>	
+				
+				<div class= bloc>
+					<div class= bloctitre>
+						 <p class="col-12 text-center">PERSONNAGE</p>
+					</div>
+					 <div class= "bloccontenu">
+				 			<p > Vous êtes la Voyante ! </p>
+				 		<div class="col text-center"> 
+					 		<img class="personnage" src= "img\voyante-old.jpg">
+					 	</div>		
+					 		<p> Pouvoir: </p>
+					 	<div class="col text-center"> 
+					 		<p class=gras> Découvrir la carte d'un joueur à chaque tour. </p>
+					 	</div>	
+					</div>
 				</div>	
 				<div class= bloc>
 					<div class= bloctitre>
-						 <p class="col-12 text-center">POUVOIR</p>
+						 <p class="col-12 text-center">JEU</p>
 					</div>
 					 <div class= bloccontenu>
-					 	<div class="row ">
-					 		<div class="col espace"> 
-						 		<img class="img-cartes" src= "img\villageois-old.jpg">
-					 		</div>
-					 	</div>
-					</div>
-				</div>	
-				<div class= bloc>
-					<div class= bloctitre>
-						 <p class="col-12 text-center">NOTIFICATIONS</p>
-					</div>
-					 <div class= bloccontenu>
-					 		<div class="row ">
-					 		<div class="col espace"> 
-						 		<img class="img-cartes" src= "img\villageois-old.jpg">
-					 		</div>
-					 	</div>
+					 	<p> C'est votre tour ! <br /> (Choisir une carte à dévoiler) <p>
+						<div class="col justify-content"> 
+					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer" >DEVOILER</button>
+					  	</div>	
+					  	<br />
 				 	</div>
 				 </div>	
 	 		</section>
@@ -217,7 +229,7 @@
 		 	</section>
 	 	</div> 
 	 	
-	 	<footer class= "container fixed-bottom"> 
+	 	<footer class= "container fixed-bottom text-center"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
 	 	</footer>
 	 	
