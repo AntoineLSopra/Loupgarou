@@ -132,10 +132,13 @@ function modifierPersonnage(id, libelle, pouvId){
 }
 
 function supprimerPersonnage(id){
+	var monPersonnage = {
+			id: id,
+	}
 	//REQUETE AJAX POUR AJOUTER LE PRODUIT
 	$.ajax({
 		method : 'DELETE',
-		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + personnage.id,
+		url : 'http://192.168.1.110/loupgarou-ajax/personnage/' + monPersonnage.id,
 		success : function(personnage) {		//LA REPONSE DU SERVEUR
 			rafraichir();
 		}
