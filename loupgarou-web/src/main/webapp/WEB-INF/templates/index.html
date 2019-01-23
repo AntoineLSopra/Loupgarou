@@ -3,7 +3,8 @@
 	<head>
 		<base href="/loupgarou-web/" />
 		<title>Loup-Garou | Bienvenue</title>
-		<meta charset="UTF-8" name="Description" content="Le meilleur jeu en ligne du monde.">
+		<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+		<meta  name="Description" content="Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet"
 		    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 		    crossorigin="anonymous"
@@ -42,27 +43,25 @@
 
    		<section id="connexion" >
 		    <div class="container">
-		        <form class="perso">
+		        <form id="connexion-inscription" class="perso" method="POST" action="connexion">
 		      	  <h3>Connexion</h3>
 		      	   <br />
 					 <div class="form-group row">
-	       			 	<label for="nom" class="col-md-4 col-form-label">InsÃ©rer votre identifiant:</label>
+	       			 	<label for="nom" class="col-md-4 col-form-label">Insérer votre identifiant:</label>
 	           		 	<div class="col">
 	            			<input type="text" class="form-control" id="username" name="username" placeholder="Identifiant" />
 	            		</div>
 	       			 </div>
 	       			  <div class="form-group row">
-	       			 	<label for="nom" class="col-md-4 col-form-label">InsÃ©rer votre mot de passe:</label>
+	       			 	<label for="nom" class="col-md-4 col-form-label">Insérer votre mot de passe:</label>
 	           		 	<div class="col">
 	            			<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
 	            		</div>
 	       			 </div>
-			 	</form>
 			 	<br />
-			 	<form class="unique">
 			        <div class="row">
 						<div class="col justify-content "> 
-							<a class=" enregistrer btn btn-success"  href="accueil.html">Se Connecter</a>	
+							<input type="submit" class=" enregistrer btn btn-success"  value="Se Connecter" />
 					  	</div>	
 					</div>	
 				</form>	
@@ -73,7 +72,7 @@
    		
     	<section id="inscription">
 		    <div class="container">
-		        <form class="perso">
+		        <form id="inscription" class="perso" method="POST" action="inscription">
 		      	  <h3>Inscription</h3>
 		      	   <br />
 					 <div class="form-group row">
@@ -83,9 +82,9 @@
 			            </div>
 			        </div>
 			        <div class="form-group row">
-			            <label for="nom" class="col-md-4 col-form-label">Ajouter un prÃ©nom&nbsp;:</label>
+			            <label for="nom" class="col-md-4 col-form-label">Ajouter un prénom&nbsp;:</label>
 			           	<div class="col">
-			                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="PrÃ©nom" />
+			                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" />
 			            </div>
 			        </div>
 			        <div class="form-group row">
@@ -100,9 +99,7 @@
 			                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" />
 			       		</div>
 				 	</div>
-			 	</form>
 			 	<br />
-			 	<form class="unique">
 			        <div class="row">
 						<div class="col justify-content"> 
 					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer" >Enregistrer</button>

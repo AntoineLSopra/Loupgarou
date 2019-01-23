@@ -15,19 +15,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.loupgarou.datajpa.IDAOPersonnage;
+
 
 @Controller
 public class AccueilController {
+	
+	@Autowired
+	private IDAOPersonnage daoPersonnage;
 
 
-	
-	
 	@GetMapping("/accueil")
 	public String accueil( HttpSession session, Model model) {
 		
-
+		model.addAttribute("personnages", daoPersonnage.findAll());
+		
 		return "accueil";
 	}
+	
+	
+
+	
+
+	
+	
+	
 //	
 //	
 //	@GetMapping("/ajout")
