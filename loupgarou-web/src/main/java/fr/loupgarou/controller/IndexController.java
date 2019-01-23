@@ -1,6 +1,5 @@
 package fr.loupgarou.controller;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class IndexController {
 	
 	
 	@GetMapping("/index")
-	public String index( HttpSession session, Model model) {
+	public String index( Model model) {
 		
 
 		return "index";
