@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 	<head>
 		<base href="/loupgarou-web/" />
-		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 		<title>Loup-Garou | Personnages</title>
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -14,14 +14,14 @@
 		<nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
 			<img class="avatar" src= "img\villageois-old.jpg">
-			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
+			<!-- Bouton "hamburger" qui s'active si l'�cran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
-			<!-- Menu à proprement parler -->
+			<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<div class="col"> 		
 					<ul class="navbar-nav">
@@ -32,7 +32,7 @@
 				<div> 		
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="accueil.html">Retour</a></li>
-						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">D�connexion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -99,10 +99,16 @@
 					   	</tr>
 					  </thead>
 					  <tbody>
-					  	<!-- <tr>
-							<th scope="row">1</th>
-							<td>Villageois</td>
-							<td>Aucun</td>
+					  	<tr th:each="personnage : ${personnages}">
+					  		<td>[[${ personnage.id }]]</td>
+							<td th:text="${ personnage.libelle}" />
+							<td>
+							<span th:each="pouvoir : ${personnage.pouvoirs}">
+							<span th:text="${ pouvoir.libelle}"></span>, </span>
+								<!-- SPAN AVEC TH-EACH : POUR CHAQUE POUVOIR DU PERSONNAGE -->
+							</td>
+							<td><a th:href="@{editer/{id}(id=${personnage.id})}">Editer</a></td>
+							<td><a th:href="@{supprimer/{id}(id=${personnage.id})}">Supprimer</a></td>
 						</tr>
 						<tr>
 							<th scope="row">2</th>
@@ -112,7 +118,7 @@
 						<tr>
 							<th scope="row">3</th>
 							<td>Voyante</td>
-							<td>Découvrir la carte d'un joueur</td>
+							<td>D�couvrir la carte d'un joueur</td>
 						</tr> -->
 					  </tbody>
 				</table>
@@ -136,6 +142,6 @@
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 			crossorigin="anonymous"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
-	 	<script src="assets/js/recuperationPersonnages.js"></script>
+	 	<!-- <script src="assets/js/recuperationPersonnages.js"></script> -->
 	</body>
 </html>

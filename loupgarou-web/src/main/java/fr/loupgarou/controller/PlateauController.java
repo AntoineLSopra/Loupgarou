@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.loupgarou.datajpa.IDAOPersonnage;
+
 
 @Controller
 public class PlateauController {
@@ -22,13 +24,6 @@ public class PlateauController {
 
 	
 	
-	@GetMapping("/plateau")
-	public String plateau( HttpSession session, Model model) {
-		
-
-		return "plateau";
-	}
-//	
 //	
 //	@GetMapping("/ajout")
 //	public String ajoutProduit(Model model) {

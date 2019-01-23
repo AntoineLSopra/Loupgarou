@@ -47,6 +47,12 @@ public class Personnage {
 	public void setHistoires(List<Histoire> histoires) {
 		this.histoires = histoires;
 	}
+	public List<Pouvoir> getPouvoirs() {
+		return pouvoirs;
+	}
+	public void setPouvoirs(List<Pouvoir> pouvoirs) {
+		this.pouvoirs = pouvoirs;
+	}
 	
 	
 	

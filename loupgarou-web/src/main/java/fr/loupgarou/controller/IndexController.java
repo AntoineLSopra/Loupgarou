@@ -1,5 +1,6 @@
 package fr.loupgarou.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +14,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import fr.loupgarou.datajpa.IDAOUtilisateur;
+import fr.loupgarou.model.Utilisateur;
 
 
 @Controller
 public class IndexController {
 
 
-	
+//	@Autowired
+//	private IDAOUtilisateur daoUtilisateur;
 	
 	@GetMapping("/index")
 	public String index( Model model) {
-		
-
 		return "index";
 	}
+	
+
+	
+	@PostMapping("/connexion")
+	public String postConnexion(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, HttpSession session, Model model){
+		System.out.println("ON EST CONNECTE !!!!");
+		return "redirect:accueil";
+	}
+	
+	
+	@PostMapping("/inscription")
+	public String getInscription(){
+		System.out.println("ON EST INSCRIT !!!!");
+		return "redirect:index";
+	}
+	
 //	
 //	
 //	@GetMapping("/ajout")
