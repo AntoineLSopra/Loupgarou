@@ -13,7 +13,7 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 
 @Configuration
-@ComponentScan("fr.formation")
+@ComponentScan("fr.loupgarou")
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 	
