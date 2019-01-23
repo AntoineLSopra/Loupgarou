@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<base href="/loupgarou-web/" />
-		<meta charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
 		<title>Loup-Garou | Accueil</title>
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -14,14 +14,14 @@
 	<body>  
 		<nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
-			<img class="avatar" src= "img\villageois-old.jpg">
-			<!-- Bouton "hamburger" qui s'active si l'Ã©cran est trop petit -->
+			<img class="avatar" src= "assets/img/villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<!-- Menu Ã  proprement parler -->
+			<!-- Menu à proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<div class="col"> 		
 					<ul class="navbar-nav">
@@ -31,7 +31,7 @@
 				</div>
 				<div> 		
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="index.html">DÃ©connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -41,7 +41,7 @@
 		 	<section class="container" id="menuPartie">
 				<div class=bloc> 
 					<div class="row justify-content-center ">
-						<img class=avatarmaxi src= "img\profil.png">
+						<img class=avatarmaxi src= "assets/img/profil.png">
 					</div>	
 					<div class= bloctitre>
 				 		<p class="col-12 text-center">JOUEUR #1</p>
@@ -49,8 +49,8 @@
 				 	<div class= bloccontenu>
 					 	<div class="col "> 
 						 		<div class="row "><p class=gras > Niveau: &nbsp <p><p> 4 </p></div>
-						 		<div class="row "><p class=gras > Parties JouÃ©es: &nbsp <p><p> 8 </p></div>
-						 		<div class="row "><p class=gras > Parties GagnÃ©es: &nbsp <p><p> 6 </p></div>
+						 		<div class="row "><p class=gras > Parties Jouées: &nbsp <p><p> 8 </p></div>
+						 		<div class="row "><p class=gras > Parties Gagnées: &nbsp <p><p> 6 </p></div>
 					 	</div>
 					</div> 
 				 </div> 
@@ -67,7 +67,7 @@
 		 		<div class="blocaccueil">
 				 	<div class="row ">
 						 <div class="col-8 text-left">
-			     			<h5> RÃ©visez les rÃ©gles !</h5>
+			     			<h5> Révisez les régles !</h5>
 			     		</div>
 			     	</div>
 					 <div class="row justify-content-center">
@@ -76,13 +76,13 @@
 				 	 <br /><br />
 				 	<div class="row ">
 						 <div class="col-8 text-left">
-			     			<h5> Rejoignez la communautÃ© !</h5>
+			     			<h5> Rejoignez la communauté !</h5>
 			     		</div>
 			     	</div> 	
 			     	 <div class="row">
 			     	 	 <div class="col">
 			     	 	 	 <div class="row">
-			     	 	 		 <img class=avatar src= "img\facebook.png">
+			     	 	 		 <img class=avatar src= "assets/img/facebook.png">
 								<a href="https://fr-fr.facebook.com/lgenligne/">Lien Facebook</a>
 							</div>
 				 		</div>
@@ -90,7 +90,7 @@
 			     	<div class="row">
 			     	 	 <div class="col">
 			     	 	 	 <div class="row">
-			     	 	 		 <img class=avatar src= "img\twitter.png">
+			     	 	 		 <img class=avatar src= "assets/img/twitter.png">
 								<a href="https://twitter.com/lgenligne?lang=fr">Lien Twitter </a>
 							</div>
 				 		</div>
@@ -127,18 +127,29 @@
 					 	</div>
 					 	<br />
 					 	<div class="row justify-content-center">
-						 		<a class=" enregistrer btn btn-success"  href="plateau.html">CrÃ©er Partie</a>
+						 		<a class=" enregistrer btn btn-success"  href="plateau.html">Créer Partie</a>
 					 	</div>
 					 <br />
 					 </div>
 					 <div class= bloc>
 					 	<div class=bloctitre>
-						 	<p class="col-12 text-center">IDEE ?</p>
+					 		<p class="col-12 text-center">Liste des Personnages</p>
 						</div>
 						<div class=bloccontenu>	
 							<div class="row justify-content-center">
-							 	A VENIR
-						 	</div>
+							 	<table>
+							 		<thead class="thead-dark">
+									    <tr>
+									      <th scope="col">Personnage</th>	
+									       <th scope="col">Pouvoir</th>
+									   	</tr>
+									 </thead>
+									<tr th:each="personnage: ${personnages}">
+										<td>[[${ personnage.libelle }]]</td>
+										<td>[[${ personnage.libelle }]]</td>
+									</tr>
+							 	</table>
+							 </div>
 					 	</div>
 				 	</div>
 			 	</div>
