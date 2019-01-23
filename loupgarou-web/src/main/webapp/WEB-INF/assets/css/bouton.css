@@ -1,0 +1,166 @@
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #663300;
+    border-style: hidden;
+    width: 100% !important;}
+
+    
+.btn-success {
+	border-style: hidden;
+}    
+
+form.large{
+	 width: 100% !important;
+	margin: 0 auto;
+}
+    
+form.boutons {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.enregistrer {
+	background-color: green;
+	border-style: hidden;
+}
+
+button.annuler {
+	background-color: red;
+	border-style: hidden;
+}
+
+form.perso {
+	width: 60%;
+	margin: 0 auto;
+}
+
+form.boutonsAccueil{
+	width: 50%;
+	margin: 0 auto;
+}
+
+form.check {
+	width: 40%;
+	margin: 0 auto;
+}
+
+form.unique {
+	width: 15%;
+	margin: 0 auto;
+}
+
+
+
+body {
+	background-color : #DBC788;
+}
+
+
+section#connexion,
+section[id="inscription"] {
+	display:none;
+}
+
+button[name="AjouterPerso"] {
+	background: rgb(186, 61, 12);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+}
+
+button[name="AnnulerAjoutPerso"] {
+	background: rgb(166, 42, 18);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+}
+
+
+td input[value="Modifier"]
+{
+	position: relative;
+	top: 0;
+	width: 100px;
+	height: 25px;
+	padding: 0px 10px;
+	border-radius: 4px;
+	background: rgb(186, 61, 12);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+	
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+td input[value="Supprimer"]
+{
+	position: relative;
+	top: 0;
+	width: 100px;
+	height: 25px;
+	padding: 0px 10px;
+	border-radius: 4px;
+	background: rgb(166, 42, 18);
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+td input[id="Valider"]{
+ 	display: none;
+	position: relative;
+	top: 0;
+	width: 100px;
+	height: 25px;
+	padding: 0px 10px;
+	border-radius: 4px;
+	background: #78A419;
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+.input-field{
+	position: relative;
+	display: none;
+	height:25px;
+	width: 175px;
+	top: 2px;
+	border: 1px solid #C2C2C2;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+
+td input[id="cancel"]{
+ 	display: none;
+	position: relative;
+	top: 0;
+	width: 75px;
+	height: 25px;
+	padding: 0px 10px;
+	border-radius: 4px;
+	background: #f00000;
+	color: white;
+	border: none;
+	box-shadow: 1px 1px #EEE;
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+td br{
+	display: none;
+	position: relative;
+	top: 10px;
+}
+
+.form-control.pouv {
+	display: none;
+}
+
+form select[name="pouvoir"], input[name="libelle"]{
+	width: 200px;

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head>
+		<base href="/loupgarou-html/" />
+		<meta charset="UTF-8" />
+		<title>Loup-Garou | Personnages</title>
+		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
+		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" /><link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
+	</head>
+	<body>  
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
+			<img class="avatar" src= "img\villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<!-- Menu à proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<div class="col"> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="personnages.html">Gestion des Personnages</a></li>
+						<li class="nav-item"><a class="nav-link" href="plateau.html">Jouer</a></li>
+					</ul>
+				</div>
+				<div> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="accueil.html">Retour</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav> 	
+		
+		<br />
+		
+		<header class="container">
+			<div class="row justify-content-center">
+				<div class="col-8 text-center">
+     				<h1> PERSONNAGES </h1>
+     			</div>
+			</div>
+  		</header> 
+  		<br />
+  	 	<section id = creer-personnage>
+		 	<div class="container">
+		 		<h2>Creation d'un Personnage:</h2>
+		 		<br />
+		 		<form class="perso">
+			 		<div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
+				        <div class="col">
+				            <input type="text" class="form-control" id="addPersonnage" name="addPersonnage" placeholder="Nom de Personnage" />
+				        </div>
+			        </div>
+			        <div class="form-group row">
+				        <label for="nom" class="col-md-3 col-form-label">Pouvoir:</label>
+				        <div class="col">
+				            	<select class="form-control pouvoir" id="addPouvoir" name="addPouvoir">
+				            	<option value="1">Loup</option>
+							<option value="2" selected>Villageois</option>
+						</select>
+				        </div>
+			        </div>
+		        </form>	
+		        <br /> 
+		        <form class="check">
+			        <div class="row">
+						<div class="col  justify-content"> 
+					  		<button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg" onclick="envoyerPersonnage(); return false;">Enregistrer</button>
+					  	</div>	
+					  	<div class="col  justify-content"> 
+					  		<button type="submit" name="AnnulerAjoutPerso" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+					  	</div>	
+					</div>	
+				</form>		 	
+	 		</div>
+	 	</section>
+
+	 	<br /><br />
+	 		
+	 	<section id = liste-personnages>
+	 		<div class="container">
+	 			<h2>Liste des Personnages</h2>
+	 			<br />
+				<table id="tableau1" class="table table-striped">
+					  <thead class = table-dark >
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Nom du Personnage</th>
+					      <th scope="col">Pouvoir</th>
+					      <th scope="col">Action</th>				
+					   	</tr>
+					  </thead>
+					  <tbody>
+					  	<!-- <tr>
+							<th scope="row">1</th>
+							<td>Villageois</td>
+							<td>Aucun</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Loup-Garou</td>
+							<td>Tuer les villageois</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Voyante</td>
+							<td>Découvrir la carte d'un joueur</td>
+						</tr> -->
+					  </tbody>
+				</table>
+	 		</div>
+	 	</section>	
+	 	
+	 	<footer class= "container fixed-bottom text-center"> 
+	 		Copyright Guivie&amp;Co &copy; 2019
+	 	</footer>
+	 	<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+	 	</script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+			crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+	 	<script src="assets/js/recuperationPersonnages.js"></script>
+	</body>
+</html>
