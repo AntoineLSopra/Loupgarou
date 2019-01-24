@@ -13,7 +13,7 @@
 	<body>  
 		<nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
-			<img class="avatar" src= "img\villageois-old.jpg">
+			<img class="avatar" src= "assets/img/villageois-old.jpg">
 			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
@@ -90,7 +90,6 @@
 						            th:value="${pouvoir.id}"
 					            	th:text="${ pouvoir.libelle}"></option>
 							</select>
-						</span>
 				        </div>
 			        </div>
 		        </div>	
@@ -101,7 +100,8 @@
 					  		<button type="submit" value="Ajouter" class="btn btn-primary btn-lg">Ajouter</button>
 					  	</div>	
 					  	<div class="col  justify-content"> 
-					  		<button type="submit" value="Annuler" class="btn btn-primary btn-lg annuler" >Annuler</button>
+					  		<a class=" enregistrer btn btn-success" th:href="personnages">Annuler</a>
+					  		<!-- <button type="submit" value="Annuler" class="btn btn-primary btn-lg annuler" href="personnages" >Annuler</button> -->
 					  	</div>	
 					</div>	
 				</div>		 	
@@ -110,8 +110,7 @@
 	 	</section>
 
 	 	<br /><br />
-	 			
-	 	
+
 	 	<footer class= "container fixed-bottom text-center"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
 	 	</footer>
