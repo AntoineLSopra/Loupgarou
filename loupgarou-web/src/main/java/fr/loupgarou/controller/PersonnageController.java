@@ -1,4 +1,8 @@
+
 package fr.loupgarou.controller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -12,10 +16,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.loupgarou.datajpa.IDAOPersonnage;
 import fr.loupgarou.datajpa.IDAOPouvoir;
 import fr.loupgarou.model.Personnage;
+import fr.loupgarou.model.Pouvoir;
 
 @Controller
 @RequestMapping("/personnages")
@@ -28,7 +34,7 @@ public class PersonnageController {
 	
 	@GetMapping
 	public String afficherPersonnages(Model model){
-		
+		 
 		//PAS DE FINDALL
 		//A LA PLACE : UNE METHODE QUI RETOURNE UNE LISTE DE PERSO AVEC LES POUVOIRS
 		// -> LEFT JOIN FETCH JPA-QUERIES
@@ -37,14 +43,31 @@ public class PersonnageController {
 		return "personnages";
 	}
 	
-	@GetMapping("/ajouter/{id}")
+	@GetMapping("/ajouter")
 	public String ajouterPersonnage(Model model) {
 		model.addAttribute("pouvoirs", daoPouvoir.findAll());
-		return "ajouter";
+		return "perso-edit";
 	}
 	
-	@PostMapping
-	public String ajouterPersonnage(@ModelAttribute Personnage personnage) {
+	//A FAIRE : ERREUR SI 2 POUVOIRS IDENTIQUES
+	@PostMapping("/ajouter")
+	public String envoyerPersonnage(@RequestParam Integer monIdPouvoir, @RequestParam Integer monIdPouvoir2,
+			@RequestParam Integer monIdPouvoir3, @ModelAttribute Personnage personnage, Model model) {
+		personnage.setPouvoirs(new ArrayList<Pouvoir>());
+		Pouvoir pouv = daoPouvoir.findById(monIdPouvoir).get();
+		Pouvoir pouv2 = null;
+		Pouvoir pouv3 = null;//daoPouvoir.findById(monIdPouvoir3).get();
+		
+		if (monIdPouvoir3 > 0) {
+			pouv3 = daoPouvoir.findById(monIdPouvoir3).get();
+		}
+		
+		if (monIdPouvoir2 > 0) {
+			pouv2 = daoPouvoir.findById(monIdPouvoir2).get();
+		}
+		personnage.getPouvoirs().add(pouv);
+		personnage.getPouvoirs().add(pouv2);
+		personnage.getPouvoirs().add(pouv3);
 		daoPersonnage.save(personnage);
 		return "redirect:/personnages";
 	}
@@ -58,13 +81,31 @@ public class PersonnageController {
 	@GetMapping("/editer/{id}")
 	public String editerPersonnage(@PathVariable Integer id, 
  Model model) {
-		model.addAttribute("produit", daoPersonnage.findById(id).get());
-		return "editer";
+		model.addAttribute("pouvoirs", daoPouvoir.findAll());
+		model.addAttribute("personnage", daoPersonnage.findById(id).get());
+		return "perso-edit";
 	}
 	
 	@PostMapping("/editer/{id}")
-	public String editerPersonnage(@PathVariable Integer id, @ModelAttribute Personnage personnage) {
+	public String editerPersonnage(@RequestParam Integer monIdPouvoir, @RequestParam Integer monIdPouvoir2,
+			@RequestParam Integer monIdPouvoir3, @PathVariable Integer id, @ModelAttribute Personnage personnage) {
 		personnage.setId(id);
+		personnage.setPouvoirs(new ArrayList<Pouvoir>());
+		Pouvoir pouv = daoPouvoir.findById(monIdPouvoir).get();
+		Pouvoir pouv2 = null;
+		Pouvoir pouv3 = null;//daoPouvoir.findById(monIdPouvoir3).get();
+		
+		if (monIdPouvoir3 > 0) {
+			pouv3 = daoPouvoir.findById(monIdPouvoir3).get();
+		}
+		
+		if (monIdPouvoir2 > 0) {
+			pouv2 = daoPouvoir.findById(monIdPouvoir2).get();
+		}
+		personnage.getPouvoirs().add(pouv);
+		personnage.getPouvoirs().add(pouv2);
+		personnage.getPouvoirs().add(pouv3);
+		
 		daoPersonnage.save(personnage);
 		return "redirect:/personnages";
 	}

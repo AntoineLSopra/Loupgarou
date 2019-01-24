@@ -28,7 +28,7 @@ button.annuler {
 	border-style: hidden;
 }
 
-form.perso {
+div.perso {
 	width: 60%;
 	margin: 0 auto;
 }
@@ -38,7 +38,7 @@ form.boutonsAccueil{
 	margin: 0 auto;
 }
 
-form.check {
+div.check {
 	width: 40%;
 	margin: 0 auto;
 }

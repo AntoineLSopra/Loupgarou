@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.loupgarou.datajpa.IDAOPersonnage;
 import fr.loupgarou.datajpa.IDAOPouvoir;
 import fr.loupgarou.model.Personnage;
+import fr.loupgarou.model.Pouvoir;
 
 @Controller
 @RequestMapping("/pouvoir")
@@ -41,32 +43,31 @@ public class PouvoirController {
 	@GetMapping("/ajouter/{id}")
 	public String ajouterPouvoir(Model model) {
 		model.addAttribute("pouvoirs", daoPouvoir.findAll());
-		return "ajouter";
+		return "pouv-edit";
 	}
 	
 	@PostMapping
-	public String ajouterPouvoir(@ModelAttribute Personnage pouvoir) {
-		daoPersonnage.save(pouvoir);
+	public String ajouterPouvoir(@ModelAttribute Pouvoir pouvoir) {
+		daoPouvoir.save(pouvoir);
 		return "redirect:/pouvoir";
 	}
 	
 	@GetMapping("/supprimer/{id}")
 	public String supprimerPouvoir(@PathVariable Integer id, HttpSession session, Model model) {
-		daoPersonnage.deleteById(id);
+		daoPouvoir.deleteById(id);
 		return "redirect:/pouvoir";
 	}
 	
 	@GetMapping("/editer/{id}")
-	public String editerPersonnage(@PathVariable Integer id, 
- Model model) {
-		model.addAttribute("produit", daoPersonnage.findById(id).get());
-		return "editer";
+	public String editerPouvoir(@PathVariable Integer id, Model model) {
+		model.addAttribute("pouvoir", daoPouvoir.findById(id).get());
+		return "pouv-edit";
 	}
 	
 	@PostMapping("/editer/{id}")
-	public String editerPersonnage(@PathVariable Integer id, @ModelAttribute Personnage personnage) {
-		personnage.setId(id);
-		daoPersonnage.save(personnage);
+	public String editerPouvoir(@PathVariable Integer id, @ModelAttribute Pouvoir pouvoir) {
+		pouvoir.setId(id);
+		daoPouvoir.save(pouvoir);
 		return "redirect:/pouvoir";
 	}
 

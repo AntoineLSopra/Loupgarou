@@ -10,6 +10,6 @@ import fr.loupgarou.model.Personnage;
 import fr.loupgarou.model.Pouvoir;
 
 public interface IDAOPersonnage extends JpaRepository<Personnage, Integer>{
-	@Query("select p from Personnage p left join fetch p.pouvoirs")
+	@Query("select distinct p from Personnage p left join fetch p.pouvoirs")
 	public List<Personnage> trouveravecPouvoirs ();
 }
