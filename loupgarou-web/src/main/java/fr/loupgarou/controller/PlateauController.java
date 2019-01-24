@@ -1,5 +1,7 @@
 package fr.loupgarou.controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,15 +17,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.loupgarou.datajpa.IDAOParticipation;
+import fr.loupgarou.datajpa.IDAOPartie;
 import fr.loupgarou.datajpa.IDAOPersonnage;
+import fr.loupgarou.datajpa.IDAOPouvoir;
+import fr.loupgarou.datajpa.IDAOUtilisateur;
+import fr.loupgarou.model.Partie;
 
 
 @Controller
 public class PlateauController {
 
+	
+	@Autowired
+	private IDAOPartie daoPartie;
+	
+	@Autowired
+	private IDAOParticipation daoParticipation;
+	
 
+	@GetMapping("/plateau/{id}")
+	public String rejoindrePartie(@PathVariable Integer id, HttpSession session, Model model) {
+			
+
+		model.addAttribute("participations", daoParticipation.findByPartieId(id));
+
+		model.addAttribute("partie", daoPartie.findById(id).get());
+		
+		return "plateau";
+		
+	}
 	
 	
+	@GetMapping("/plateau/{id}/supprimer/{idParticipation}")
+	public String supprimerProduit(@PathVariable Integer id, @PathVariable Integer idParticipation, HttpSession session, Model model) {
+			
+		daoParticipation.deleteById(idParticipation);
+		
+		
+		
+		return "redirect:/plateau/{id}";
+		
+	}
 //	
 //	@GetMapping("/ajout")
 //	public String ajoutProduit(Model model) {

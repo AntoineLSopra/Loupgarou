@@ -54,6 +54,11 @@ public class Personnage {
 		this.pouvoirs = pouvoirs;
 	}
 	
+	@Override
+	public String toString() {
+		return this.libelle;
+	}
+	
 	
 	
 }
