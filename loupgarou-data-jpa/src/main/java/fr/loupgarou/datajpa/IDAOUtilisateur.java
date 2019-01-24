@@ -25,5 +25,9 @@ public interface IDAOUtilisateur extends JpaRepository<Utilisateur, Integer>{
 	
     @Query("select a from Administrateur a where a.username = :username and a.password = :password")
     public Administrateur connexionAdministrateur(@Param ("username") String use, @Param ("password") String pass);
+    
+    
+    public Utilisateur findByUsername(String username);
+    
 }
 
