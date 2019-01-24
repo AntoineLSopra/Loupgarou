@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import fr.loupgarou.datajpa.IDAOUtilisateur;
+import fr.loupgarou.model.Joueur;
 import fr.loupgarou.model.Utilisateur;
 
 
@@ -22,26 +25,34 @@ import fr.loupgarou.model.Utilisateur;
 public class IndexController {
 
 
-//	@Autowired
-//	private IDAOUtilisateur daoUtilisateur;
+	@Autowired
+	private IDAOUtilisateur daoUtilisateur;
 	
 	@GetMapping("/index")
 	public String index( Model model) {
+		
 		return "index";
 	}
 	
-
 	
 	@PostMapping("/connexion")
-	public String postConnexion(@Valid @ModelAttribute Utilisateur utilisateur, BindingResult result, HttpSession session, Model model){
-		System.out.println("ON EST CONNECTE !!!!");
-		return "redirect:accueil";
+	public String postConnexion(@RequestParam String username, @RequestParam String password, HttpSession session, Model model){
+		
+		if (daoUtilisateur.findByUsername(username) != null && daoUtilisateur.findByUsername(username).getPassword().equals(password)){
+			return "redirect:accueil";
+		}
+		
+		else {
+			return "redirect:index";
+		}
 	}
 	
 	
 	@PostMapping("/inscription")
-	public String getInscription(){
-		System.out.println("ON EST INSCRIT !!!!");
+	public String getInscription(@Valid @ModelAttribute Joueur joueur, BindingResult result, HttpSession session, Model model){
+		
+			model.addAttribute("joueur", daoUtilisateur.save(joueur));
+
 		return "redirect:index";
 	}
 	

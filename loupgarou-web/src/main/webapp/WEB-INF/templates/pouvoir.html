@@ -43,7 +43,7 @@
 		<header class="container">
 			<div class="row justify-content-center">
 				<div class="col-8 text-center">
-     				<h1> PERSONNAGES </h1>
+     				<h1> POUVOIR </h1>
      			</div>
 			</div>
   		</header> 
@@ -52,78 +52,33 @@
   	 		<div class="check">
 			        <div class="row">
 						<div class="col  justify-content"> 
-					  		<a href="personnages/ajouter" ><button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg">Ajouter Personnage</button></a>
+					  		<a href="pouvoir/ajouter" ><button type="submit" name="AjouterPouvoir" value="Envoyer" class="btn btn-primary btn-lg">Ajouter Pouvoir</button></a>
 					  	</div>	
-					  	<div class="col  justify-content"> 
-					  		<a href="pouvoir" ><button type="submit" name="Pouvoir" value="Envoyer" class="btn btn-primary btn-lg">Menu Pouvoir</button></a>
-					  	</div>
 					</div>	
 				</div>		 	
 	 	</section>
-  	 	<!-- <section id = creer-personnage>
-  	 		<form method="POST">
-		 	<div class="container">
-		 		<h2>Creation d'un Personnage:</h2>
-		 		<br />
-		 		<div class="perso">
-			 		<div class="form-group row">
-				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
-				        <div class="col">
-				            <input type="text" class="form-control" id="addPersonnage" name="addPersonnage" placeholder="Nom de Personnage" />
-				        </div>
-			        </div>
-			        <div class="form-group row">
-				        <label for="nom" class="col-md-3 col-form-label">Pouvoir:</label>
-				        <div class="col">
-				            	<select class="form-control pouvoir" id="addPouvoir" name="addPouvoir">
-				            	<option value="1">Loup</option>
-							<option value="2" selected>Villageois</option>
-						</select>
-				        </div>
-			        </div>
-		        </div>	
-		        <br /> 
-		        <div class="check">
-			        <div class="row">
-						<div class="col  justify-content"> 
-					  		<button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg">Enregistrer</button>
-					  	</div>	
-					  	<div class="col  justify-content"> 
-					  		<button type="submit" name="AnnulerAjoutPerso" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
-					  	</div>	
-					</div>	
-				</div>		 	
-	 		</div>
-	 		</form>
-	 	</section> -->
 
 	 	<br /><br />
 	 		
 	 	<section id = liste-personnages>
 	 		<div class="container">
-	 			<h2>Liste des Personnages</h2>
+	 			<h2>Liste des Pouvoirs</h2>
 	 			<br />
 				<table id="tableau1" class="table table-striped">
 					  <thead class = table-dark >
 					    <tr>
 					      <th scope="col">#</th>
-					      <th scope="col">Nom du Personnage</th>
-					      <th scope="col">Pouvoir</th>
+					      <th scope="col">Nom du Pouvoir</th>
 					      <th scope="col">Action</th>				
 					   	</tr>
 					  </thead>
 					  <tbody>
-					  	<tr th:each="personnage : ${personnages}">
-					  		<td>[[${ personnage.id }]]</td>
-							<td th:text="${ personnage?.libelle}" />
+					  	<tr th:each="pouvoir : ${pouvoirs}">
+					  		<td>[[${ pouvoir.id }]]</td>
+							<td th:text="${ pouvoir?.libelle}" />
 							<td>
-							<span th:each="pouvoir : ${personnage.pouvoirs}">
-							<span th:text="${ pouvoir?.libelle}"></span>, </span>
-								<!-- SPAN AVEC TH-EACH : POUR CHAQUE POUVOIR DU PERSONNAGE -->
-							</td>
-							<td>
-							<span><a th:href="@{personnages/editer/{id}(id=${personnage.id})}"><input type="button" value="Modifier"></a></span>
-							<span><a th:href="@{personnages/supprimer/{id}(id=${personnage.id})}"><input type="button" value="Supprimer"></a></span>
+							<span><a th:href="@{pouvoir/editer/{id}(id=${pouvoir.id})}"><input type="button" value="Modifier"></a></span>
+							<span><a th:href="@{pouvoir/supprimer/{id}(id=${pouvoir.id})}"><input type="button" value="Supprimer"></a></span>
 							</td>
 						</tr>
 					  </tbody>
