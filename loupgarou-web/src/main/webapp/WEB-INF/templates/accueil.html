@@ -118,17 +118,16 @@
 		 	<section class="container" id="organisationPartie">
 		 		<div class= bloc>
 		 		 	<div class= bloctitre>
-				 		<p class="col-12 text-center">JOUER</p>
+				 		<p class="col-12 text-center">REJOINDRE PARTIE</p>
 				 	</div>
 				 	<div class= bloccontenu>
 				 	<br />
-					 	<div class="row justify-content-center">
-						 	<a class=" enregistrer btn btn-success"  href="plateau.html">Rejoindre Partie</a>
-					 	</div>
+				 		<div class="row ">
+			 				<div class="col largeur" th:each="partie: ${parties}"> 
+								<a class=" enregistrer btn btn-success" th:href="@{plateau/{id}(id=${partie.id})}">n°[[${ partie.id }]]</a>
+							</div>
+						</div>
 					 	<br />
-					 	<div class="row justify-content-center">
-						 		<a class=" enregistrer btn btn-success"  href="plateau.html">Créer Partie</a>
-					 	</div>
 					 <br />
 					 </div>
 					 <div class= bloc>
@@ -139,14 +138,18 @@
 							<div class="row justify-content-center">
 							 	<table>
 							 		<thead class="thead-dark">
-									    <tr>
+									    <tr align="center">
 									      <th scope="col">Personnage</th>	
-									       <th scope="col">Pouvoir</th>
+									       <th  scope="col">Pouvoir</th>
 									   	</tr>
 									 </thead>
 									<tr th:each="personnage: ${personnages}">
-										<td>[[${ personnage.libelle }]]</td>
-										<td>[[${ personnage.libelle }]]</td>
+										<td align="center">[[${ personnage.libelle }]]</td>
+										<td align="center">
+											<span th:each="pouvoir : ${personnage.pouvoirs}">
+											<span th:text="${ pouvoir.libelle}"></span>, </span>
+											<!-- SPAN AVEC TH-EACH : POUR CHAQUE POUVOIR DU PERSONNAGE -->
+										</td>
 									</tr>
 							 	</table>
 							 </div>

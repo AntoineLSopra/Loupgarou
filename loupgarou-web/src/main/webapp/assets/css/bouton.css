@@ -60,6 +60,12 @@ section[id="inscription"] {
 	display:none;
 }
 
+
+section[id="liste"] {
+	display:none;
+}
+
+
 button[name="AjouterPerso"] {
 	background: rgb(186, 61, 12);
 	color: white;

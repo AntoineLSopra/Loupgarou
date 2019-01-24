@@ -59,13 +59,13 @@
 						 <p class="col-12 text-center">PERSONNAGE</p>
 					</div>
 					 <div class= "bloccontenu">
-				 			<p > Vous êtes la Voyante ! </p>
+				 			<p > Vous êtes Loup-Garou ! </p>
 				 		<div class="col text-center"> 
-					 		<img class="personnage" src= "assets/img/voyante-old.jpg">
+					 		<img class="personnage" src= "assets/img/loupgarou-old.jpg">
 					 	</div>		
 					 		<p> Pouvoir: </p>
 					 	<div class="col text-center"> 
-					 		<p class=gras> Découvrir la carte d'un joueur à chaque tour. </p>
+					 		<p class=gras> Dévorer un personnage. </p>
 					 	</div>	
 					</div>
 				</div>	
@@ -74,10 +74,19 @@
 						 <p class="col-12 text-center">JEU</p>
 					</div>
 					 <div class= bloccontenu>
-					 	<p> C'est votre tour ! <br /> (Choisir une carte à dévoiler) <p>
-						<div class="col justify-content"> 
-					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer" >DEVOILER</button>
+					 	<p> C'est votre tour ! <br /> <p>
+						<div id=affichageliste class="col justify-content"> 
+					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer" href="#liste" >DEVORER UN PERSO</button>
 					  	</div>	
+					  	
+					  	<section id="liste" >
+						  	<form id=liste >
+								<div class="col" th:each="participation: ${participations}"  >
+									<a th:href="@{plateau/{id}/supprimer/{idParticipation}(id=${partie.id}, idParticipation=${participation.id})}"/>[[${ participation.joueur }]]</a>
+							 	</div>
+						  	</form>	
+					  	</section>
+					  	
 					  	<br />
 				 	</div>
 				 </div>	
@@ -86,13 +95,7 @@
 		 	<section class="container" id="deroulementPartie">
 		 		<br />
 			 	<div class="row ">
-			 		<div class="col largeur"> 
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
-				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
+			 		<div class="col largeur" th:each="participation: ${participations}"> 
 				 		<img class="img-cartes" src= "assets/img/dos-old.jpg">
 				 	</div>
 			 	</div>
@@ -189,17 +192,14 @@
 				 		<p class="col-12 text-center">COMPOSITION DU JEU</p>
 				 	</div>
 				 	<div class= bloccontenu>
-					 	<div class="row ">
-					 		<div class="col espace"> 
-						 		<img class="img-cartes" src= "assets/img/villageois-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/villageois-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/villageois-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/voyante-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/sorciere-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/loupgarou-old.jpg">
-						 		<img class="img-cartes" src= "assets/img/loupgarou-old.jpg">
-					 		</div>
-					 	</div>
+				 		<div class="row"> 
+							<div class="col-sm"> 
+								<br />
+							 	<div class="row" th:each="participation: ${participations}"  >
+							 		<p class=dore>[[${ participation.personnage }]]<p>
+							 	</div>
+							 </div>
+						</div>
 					 	<br />
 					 </div>
 					 <div class= bloc>
@@ -208,37 +208,13 @@
 						</div>
 						<div class=bloccontenu>	
 							<div class="row"> 
-							<div class="col-sm"> 
-								<div class="row"> 
-							 		<img class="avatar" src= "assets/img/loupgarou-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div>
-							 	<div class="row"> 
-							 		<img class="avatar" src= "assets/img/cupidon-old.jpg">
-							 		<p class=dore> Fredo l'abricot <p>
-							 	</div>
-							 	<div class="row"> 
-							 		<img class="avatar" src= "assets/img/chasseur-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div><div class="row"> 
-							 		<img class="avatar" src= "assets/img/dos-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div><div class="row"> 
-							 		<img class="avatar" src= "assets/img/villageois-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div>
-							 </div>
-							 <div class="col-sm"> 
-							 	<p> Observateurs:</p>
-							 	<div class="row"> 
-							 		<img class="avatar" src= "assets/img/villageois-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div>
-							 	<div class="row"> 
-							 		<img class="avatar" src= "assets/img/villageois-old.jpg">
-							 		<p class=dore> Jojo l'asticot <p>
-							 	</div> 
-							</div> 	
+								<div class="col-sm"> 
+								<br />
+									<div class="row" th:each="participation: ${participations}"  >
+								 		<img class="avatar" src= "assets/img/profil.png">
+								 		<p class=dore>[[${ participation.joueur }]]<p>
+								 	</div>
+								 </div>
 							</div> 	
 					 	</div>
 				 	</div>
@@ -263,6 +239,7 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 			crossorigin="anonymous"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+		 <script src="assets/js/affichageConnexion.js"></script>   
 	</body>
 </html>
