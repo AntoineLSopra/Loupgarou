@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" >
 	<head>
 		<base href="/loupgarou-web/" />
-		<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+		<!-- <meta http-equiv="Content-Type" content="text/html charset=UTF-8" /> -->
 		<title>Loup-Garou | Personnages</title>
 		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
 		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
@@ -14,7 +14,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
 			<img class="avatar" src= "img\villageois-old.jpg">
-			<!-- Bouton "hamburger" qui s'active si l'ï¿½cran est trop petit -->
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
 				<div> 		
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="accueil.html">Retour</a></li>
-						<li class="nav-item"><a class="nav-link" href="index.html">Dï¿½connexion</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html">Deconnexion</a></li>
 					</ul>
 				</div>
 			</div>
@@ -48,37 +48,49 @@
 			</div>
   		</header> 
   		<br />
-		<section id = creer-personnage>
-  	 		<div class="check">
-			        <div class="row">
-						<div class="col  justify-content"> 
-					  		<a href="personnages/ajouter" ><button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg">Ajouter Personnage</button></a>
-					  	</div>	
-					  	<div class="col  justify-content"> 
-					  		<a href="pouvoir" ><button type="submit" name="Pouvoir" value="Envoyer" class="btn btn-primary btn-lg">Menu Pouvoir</button></a>
-					  	</div>
-					</div>	
-				</div>		 	
-	 	</section>
-  	 	<!-- <section id = creer-personnage>
+  	 	<section id = creer-personnage>
   	 		<form method="POST">
 		 	<div class="container">
-		 		<h2>Creation d'un Personnage:</h2>
+		 		<h2>Creation d'un Personnage :</h2>
 		 		<br />
 		 		<div class="perso">
 			 		<div class="form-group row">
-				        <label for="nom" class="col-md-3 col-form-label">Nom:</label>
+				        <label for="nom" class="col-md-3 col-form-label">Nom :</label>
 				        <div class="col">
-				            <input type="text" class="form-control" id="addPersonnage" name="addPersonnage" placeholder="Nom de Personnage" />
+				            <input type="text" class="form-control" id="addPersonnage" name="libelle" th:value="${personnage?.libelle}" />
 				        </div>
 			        </div>
 			        <div class="form-group row">
-				        <label for="nom" class="col-md-3 col-form-label">Pouvoir:</label>
+				        <label for="nom" class="col-md-3 col-form-label">Pouvoir :</label>
 				        <div class="col">
-				            	<select class="form-control pouvoir" id="addPouvoir" name="addPouvoir">
-				            	<option value="1">Loup</option>
-							<option value="2" selected>Villageois</option>
-						</select>
+				            <select name="monIdPouvoir">
+				            <option>Selectionner pouvoir1</option>
+				            <option th:each="pouvoir : ${pouvoirs}"
+				            th:value="${pouvoir.id}"
+				            th:text="${ pouvoir.libelle}"></option>
+							</select>
+				        </div>
+				         <label for="nom" class="col-md-3 col-form-label">Pouvoir 2 :</label>
+				        <div class="col">
+				            <select name="monIdPouvoir2">
+				            <option value="0">Selectionner pouvoir2</option>
+				            <option th:each="pouvoir : ${pouvoirs}"
+				            th:value="${pouvoir.id}"
+				            th:text="${ pouvoir.libelle}">
+				            </option>
+				            
+							</select>
+				        </div>
+				         <label for="nom" class="col-md-3 col-form-label">Pouvoir 3 :</label>
+				        <div class="col">
+				            <select name="monIdPouvoir3">
+					            <option value="0">Selectionner pouvoir3</option>
+					            <option 
+						            th:each="pouvoir : ${pouvoirs}"
+						            th:value="${pouvoir.id}"
+					            	th:text="${ pouvoir.libelle}"></option>
+							</select>
+						</span>
 				        </div>
 			        </div>
 		        </div>	
@@ -86,50 +98,19 @@
 		        <div class="check">
 			        <div class="row">
 						<div class="col  justify-content"> 
-					  		<button type="submit" name="AjouterPerso" value="Envoyer" class="btn btn-primary btn-lg">Enregistrer</button>
+					  		<button type="submit" value="Ajouter" class="btn btn-primary btn-lg">Ajouter</button>
 					  	</div>	
 					  	<div class="col  justify-content"> 
-					  		<button type="submit" name="AnnulerAjoutPerso" value="Envoyer" class="btn btn-primary btn-lg annuler" >Annuler</button>
+					  		<button type="submit" value="Annuler" class="btn btn-primary btn-lg annuler" >Annuler</button>
 					  	</div>	
 					</div>	
 				</div>		 	
 	 		</div>
 	 		</form>
-	 	</section> -->
+	 	</section>
 
 	 	<br /><br />
-	 		
-	 	<section id = liste-personnages>
-	 		<div class="container">
-	 			<h2>Liste des Personnages</h2>
-	 			<br />
-				<table id="tableau1" class="table table-striped">
-					  <thead class = table-dark >
-					    <tr>
-					      <th scope="col">#</th>
-					      <th scope="col">Nom du Personnage</th>
-					      <th scope="col">Pouvoir</th>
-					      <th scope="col">Action</th>				
-					   	</tr>
-					  </thead>
-					  <tbody>
-					  	<tr th:each="personnage : ${personnages}">
-					  		<td>[[${ personnage.id }]]</td>
-							<td th:text="${ personnage?.libelle}" />
-							<td>
-							<span th:each="pouvoir : ${personnage.pouvoirs}">
-							<span th:text="${ pouvoir?.libelle}"></span>, </span>
-								<!-- SPAN AVEC TH-EACH : POUR CHAQUE POUVOIR DU PERSONNAGE -->
-							</td>
-							<td>
-							<span><a th:href="@{personnages/editer/{id}(id=${personnage.id})}"><input type="button" value="Modifier"></a></span>
-							<span><a th:href="@{personnages/supprimer/{id}(id=${personnage.id})}"><input type="button" value="Supprimer"></a></span>
-							</td>
-						</tr>
-					  </tbody>
-				</table>
-	 		</div>
-	 	</section>	
+	 			
 	 	
 	 	<footer class= "container fixed-bottom text-center"> 
 	 		Copyright Guivie&amp;Co &copy; 2019
