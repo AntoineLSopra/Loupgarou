@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.loupgarou.datajpa.IDAOPartie;
 import fr.loupgarou.datajpa.IDAOPersonnage;
+import fr.loupgarou.datajpa.IDAOUtilisateur;
 
 
 @Controller
@@ -27,10 +28,13 @@ public class AccueilController {
 	
 	@Autowired
 	private IDAOPartie daoPartie;
+	
 
 
 	@GetMapping("/accueil")
 	public String accueil( HttpSession session, Model model) {
+		
+		
 		
 		model.addAttribute("personnages", daoPersonnage.trouveravecPouvoirs());
 		model.addAttribute("parties", daoPartie.findAll());

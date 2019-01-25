@@ -36,7 +36,8 @@ public class IndexController {
 	
 	
 	@PostMapping("/connexion")
-	public String postConnexion(@RequestParam String username, @RequestParam String password, HttpSession session, Model model){
+	public String postConnexion(@RequestParam String username, @RequestParam String password,  HttpSession session, Model model){
+		
 		
 		if (daoUtilisateur.findByUsername(username) != null && daoUtilisateur.findByUsername(username).getPassword().equals(password)){
 			return "redirect:accueil";
