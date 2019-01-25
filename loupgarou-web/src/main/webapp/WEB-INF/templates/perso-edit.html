@@ -14,14 +14,14 @@
 		<nav class="navbar navbar-expand-lg">
 			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
 			<img class="avatar" src= "assets/img/villageois-old.jpg">
-			<!-- Bouton "hamburger" qui s'active si l'�cran est trop petit -->
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
-			<!-- Menu � proprement parler -->
+			<!-- Menu ï¿½ proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<div class="col"> 		
 					<ul class="navbar-nav">
@@ -64,10 +64,11 @@
 				        <label for="nom" class="col-md-3 col-form-label">Pouvoir :</label>
 				        <div class="col">
 				            <select name="monIdPouvoir">
-				            <option>Selectionner pouvoir1</option>
+				            <option value="0">Selectionner pouvoir1</option>
 				            <option th:each="pouvoir : ${pouvoirs}"
 				            th:value="${pouvoir.id}"
-				            th:text="${ pouvoir.libelle}"></option>
+				            th:text="${ pouvoir.libelle}"
+				       ></option>
 							</select>
 				        </div>
 				         <label for="nom" class="col-md-3 col-form-label">Pouvoir 2 :</label>
@@ -78,7 +79,6 @@
 				            th:value="${pouvoir.id}"
 				            th:text="${ pouvoir.libelle}">
 				            </option>
-				            
 							</select>
 				        </div>
 				         <label for="nom" class="col-md-3 col-form-label">Pouvoir 3 :</label>
@@ -99,8 +99,8 @@
 						<div class="col  justify-content"> 
 					  		<button type="submit" value="Ajouter" class="btn btn-primary btn-lg">Ajouter</button>
 					  	</div>	
-					  	<div class="col  justify-content"> 
-					  		<a class=" enregistrer btn btn-success" th:href="personnages">Annuler</a>
+					  	<div class="col justify-content"> 
+					  		<a class="btn btn-success btn-lg AnnulerAjoutPerso" th:href="personnages">Annuler</a>
 					  		<!-- <button type="submit" value="Annuler" class="btn btn-primary btn-lg annuler" href="personnages" >Annuler</button> -->
 					  	</div>	
 					</div>	
