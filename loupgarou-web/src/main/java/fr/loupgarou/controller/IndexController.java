@@ -34,6 +34,12 @@ public class IndexController {
 		return "index";
 	}
 	
+	@GetMapping("/")
+	public String index2( Model model) {
+		
+		return "index";
+	}
+	
 	
 	@PostMapping("/connexion")
 	public String postConnexion(@RequestParam String username, @RequestParam String password,  HttpSession session, Model model){

@@ -18,6 +18,12 @@ form.boutons {
 	margin: 0 auto;
 }
 
+.valider {
+	background-color: #69911B;
+	border-style: hidden;
+	margin: 0 auto;
+}
+
 .enregistrer {
 	background-color: green;
 	border-style: hidden;
@@ -28,7 +34,7 @@ button.annuler {
 	border-style: hidden;
 }
 
-div.perso {
+.perso {
 	width: 60%;
 	margin: 0 auto;
 }
@@ -38,7 +44,7 @@ form.boutonsAccueil{
 	margin: 0 auto;
 }
 
-div.check {
+.check {
 	width: 40%;
 	margin: 0 auto;
 }
