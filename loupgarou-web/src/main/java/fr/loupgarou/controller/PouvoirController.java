@@ -40,13 +40,13 @@ public class PouvoirController {
 		return "pouvoir";
 	}
 	
-	@GetMapping("/ajouter/{id}")
+	@GetMapping("/ajouter")
 	public String ajouterPouvoir(Model model) {
 		model.addAttribute("pouvoirs", daoPouvoir.findAll());
 		return "pouv-edit";
 	}
 	
-	@PostMapping
+	@PostMapping("/ajouter")
 	public String ajouterPouvoir(@ModelAttribute Pouvoir pouvoir) {
 		daoPouvoir.save(pouvoir);
 		return "redirect:/pouvoir";
