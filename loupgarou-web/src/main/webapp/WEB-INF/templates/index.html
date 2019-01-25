@@ -55,13 +55,13 @@
 	       			  <div class="form-group row">
 	       			 	<label for="nom" class="col-md-4 col-form-label">Insérer votre mot de passe:</label>
 	           		 	<div class="col">
-	            			<input type="password" class="form-control" id="password" name="password" th:value="${ utilisateur?.username }" placeholder="Mot de passe" />
+	            			<input type="password" class="form-control" id="password" name="password" th:value="${ utilisateur?.password }" placeholder="Mot de passe" />
 	            		</div>
 	       			 </div>
 			 	<br />
 			        <div class="row">
 						<div class="col justify-content "> 
-							<input type="submit" class=" enregistrer btn btn-success"  value="Se Connecter" />
+							<input type="submit" class=" enregistrer btn btn-success"   value="Se Connecter" />
 					  	</div>	
 					</div>	
 				</form>	
@@ -102,7 +102,7 @@
 			 	<br />
 			        <div class="row">
 						<div class="col justify-content"> 
-					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer" >Enregistrer</button>
+					  		<button type="submit" value="Envoyer" class="btn btn-primary enregistrer"  >Enregistrer</button>
 					  	</div>	
 					</div>	
 				</form>	

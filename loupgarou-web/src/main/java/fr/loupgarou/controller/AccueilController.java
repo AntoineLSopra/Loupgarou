@@ -29,15 +29,19 @@ public class AccueilController {
 	@Autowired
 	private IDAOPartie daoPartie;
 	
+	@Autowired
+	private IDAOUtilisateur daoUtilisateur;
+	
 
-
-	@GetMapping("/accueil")
-	public String accueil( HttpSession session, Model model) {
+	@GetMapping("/accueil/{id}")
+	public String accueil( @PathVariable Integer id, HttpSession session, Model model) {
 		
-		
+		model.addAttribute("utilisateur", daoUtilisateur.findById(id).get());
 		
 		model.addAttribute("personnages", daoPersonnage.trouveravecPouvoirs());
+		
 		model.addAttribute("parties", daoPartie.findAll());
+		
 		
 		return "accueil";
 	}
