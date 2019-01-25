@@ -54,7 +54,7 @@ public class PersonnageController {
 	public String envoyerPersonnage(@RequestParam Integer monIdPouvoir, @RequestParam Integer monIdPouvoir2,
 			@RequestParam Integer monIdPouvoir3, @ModelAttribute Personnage personnage, Model model) {
 		personnage.setPouvoirs(new ArrayList<Pouvoir>());
-		Pouvoir pouv = daoPouvoir.findById(monIdPouvoir).get();
+		Pouvoir pouv = null;
 		Pouvoir pouv2 = null;
 		Pouvoir pouv3 = null;//daoPouvoir.findById(monIdPouvoir3).get();
 		
@@ -64,6 +64,10 @@ public class PersonnageController {
 		
 		if (monIdPouvoir2 > 0) {
 			pouv2 = daoPouvoir.findById(monIdPouvoir2).get();
+		}
+		
+		if (monIdPouvoir > 0) {
+			pouv = daoPouvoir.findById(monIdPouvoir).get();
 		}
 		personnage.getPouvoirs().add(pouv);
 		personnage.getPouvoirs().add(pouv2);
@@ -89,9 +93,10 @@ public class PersonnageController {
 	@PostMapping("/editer/{id}")
 	public String editerPersonnage(@RequestParam Integer monIdPouvoir, @RequestParam Integer monIdPouvoir2,
 			@RequestParam Integer monIdPouvoir3, @PathVariable Integer id, @ModelAttribute Personnage personnage) {
+		
 		personnage.setId(id);
 		personnage.setPouvoirs(new ArrayList<Pouvoir>());
-		Pouvoir pouv = daoPouvoir.findById(monIdPouvoir).get();
+		Pouvoir pouv = null;
 		Pouvoir pouv2 = null;
 		Pouvoir pouv3 = null;//daoPouvoir.findById(monIdPouvoir3).get();
 		
@@ -102,6 +107,12 @@ public class PersonnageController {
 		if (monIdPouvoir2 > 0) {
 			pouv2 = daoPouvoir.findById(monIdPouvoir2).get();
 		}
+		
+		if (monIdPouvoir > 0) {
+			pouv = daoPouvoir.findById(monIdPouvoir).get();
+		}
+		
+		
 		personnage.getPouvoirs().add(pouv);
 		personnage.getPouvoirs().add(pouv2);
 		personnage.getPouvoirs().add(pouv3);
