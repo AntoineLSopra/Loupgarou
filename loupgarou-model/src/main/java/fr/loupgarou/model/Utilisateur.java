@@ -85,7 +85,9 @@ public class Utilisateur {
 			return this.getUsername();
 		}
 		
-		
+		public boolean isAdmin() {
+			return false;
+		}
 		
 //		public static Utilisateur connexion(String username, String password) {
 //			

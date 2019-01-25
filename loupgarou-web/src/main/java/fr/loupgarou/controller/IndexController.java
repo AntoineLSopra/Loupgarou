@@ -44,9 +44,18 @@ public class IndexController {
 	@PostMapping("/connexion")
 	public String postConnexion(@RequestParam String username, @RequestParam String password,  HttpSession session, Model model){
 		
+		int id = daoUtilisateur.findByUsername(username).getId();
 		
-		if (daoUtilisateur.findByUsername(username) != null && daoUtilisateur.findByUsername(username).getPassword().equals(password)){
-			return "redirect:accueil";
+		if (daoUtilisateur.findByUsername(username) != null 
+				&& daoUtilisateur.findByUsername(username).getPassword().equals(password)
+				&& daoUtilisateur.findByUsername(username).isAdmin() == false ){
+			return "redirect:accueil/" + id;
+		}
+		
+		if (daoUtilisateur.findByUsername(username) != null
+				&& daoUtilisateur.findByUsername(username).getPassword().equals(password) 
+				&& daoUtilisateur.findByUsername(username).isAdmin() == true ){
+			return "redirect:personnages";
 		}
 		
 		else {

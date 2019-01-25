@@ -9,6 +9,8 @@ import javax.persistence.*;
 
 public class Administrateur extends Utilisateur {
 
-
+	public boolean isAdmin() {
+		return true;
+	}
 	
 }

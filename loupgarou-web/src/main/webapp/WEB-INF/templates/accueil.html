@@ -23,12 +23,6 @@
 			</button>
 			<!-- Menu à proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<div class="col"> 		
-					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="personnages.html">Gestion des Personnages</a></li>
-						<li class="nav-item"><a class="nav-link" href="plateau.html">Jouer</a></li>
-					</ul>
-				</div>
 				<div> 		
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
@@ -44,10 +38,12 @@
 						<img class=avatarmaxi src= "assets/img/profil.png">
 					</div>	
 					<div class= bloctitre>
-				 		<p class="col-12 text-center">JOUEUR #1</p>
+				 		<p class="col-12 text-center">[[${ utilisateur.username }]]</p>
 				 	</div>
 				 	<div class= bloccontenu>
 					 	<div class="col "> 
+					 			<div class="row "><p class=gras > Prénom: &nbsp <p><p>[[${ utilisateur.prenom }]] </p></div>
+					 			<div class="row "><p class=gras > Nom: &nbsp <p><p>[[${ utilisateur.nom }]] </p></div>
 						 		<div class="row "><p class=gras > Niveau: &nbsp <p><p> 4 </p></div>
 						 		<div class="row "><p class=gras > Parties Jouées: &nbsp <p><p> 8 </p></div>
 						 		<div class="row "><p class=gras > Parties Gagnées: &nbsp <p><p> 6 </p></div>
@@ -60,7 +56,7 @@
 	 			<header class="container">
 					<div class="row justify-content-center">
 						<div class="col-8 text-center">
-		     				<h1> BIENVENUE JOUEUR #1 </h1><br /><br />
+		     				<h1> Bienvenue [[${ utilisateur.username }]] ! </h1><br /><br />
 		     			</div>
 					</div>
 		  		</header> 
