@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<base href="/loupgarou-web/" />
+		<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+		<title>Loup-Garou | Accueil</title>
+		<meta name="Description" content= "Le meilleur jeu en ligne du monde.">
+		<link rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" 
+				crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/bouton.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/plateau.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/navbar.css" />
+	</head>
+	<body>  
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="accueil.html">ACCUEIL</a>
+			<img class="avatar" src= "assets/img/villageois-old.jpg">
+			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<!-- Menu à proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<div> 		
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="index.html">Déconnexion</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>	
+
+		<div id="colonnes">
+		 	<section class="container" id="menuPartie">
+				<div class=bloc> 
+					<div class="row justify-content-center ">
+						<img class=avatarmaxi src= "assets/img/profil.png">
+					</div>	
+					<div class= bloctitre>
+				 		<p class="col-12 text-center">[[${ utilisateur.username }]]</p>
+				 	</div>
+				 	<div class= bloccontenu>
+					 	<div class="col "> 
+					 			<div class="row "><p class=gras > Prénom: &nbsp <p><p>[[${ utilisateur.prenom }]] </p></div>
+					 			<div class="row "><p class=gras > Nom: &nbsp <p><p>[[${ utilisateur.nom }]] </p></div>
+						 		<div class="row "><p class=gras > Niveau: &nbsp <p><p> 4 </p></div>
+						 		<div class="row "><p class=gras > Parties Jouées: &nbsp <p><p> 8 </p></div>
+						 		<div class="row "><p class=gras > Parties Gagnées: &nbsp <p><p> 6 </p></div>
+					 	</div>
+					</div> 
+				 </div> 
+	 		</section>
+	 	
+		 	<section class="container" id="deroulementPartie">
+	 			<header class="container">
+					<div class="row justify-content-center">
+						<div class="col-8 text-center">
+		     				<h1> Bienvenue [[${ utilisateur.username }]] ! </h1><br /><br />
+		     			</div>
+					</div>
+		  		</header> 
+		 		<div class="blocaccueil">
+				 	<div class="row ">
+						 <div class="col-8 text-left">
+			     			<h5> Révisez les régles !</h5>
+			     		</div>
+			     	</div>
+					 <div class="row justify-content-center">
+				     	<iframe width="800" height="315" src="https://www.youtube.com/embed/qAfG6F7UZsI?rel=0" ></iframe>
+				 	</div> 	
+				 	 <br /><br />
+				 	<div class="row ">
+						 <div class="col-8 text-left">
+			     			<h5> Rejoignez la communauté !</h5>
+			     		</div>
+			     	</div> 	
+			     	 <div class="row">
+			     	 	 <div class="col">
+			     	 	 	 <div class="row">
+			     	 	 		 <img class=avatar src= "assets/img/facebook.png">
+								<a href="https://fr-fr.facebook.com/lgenligne/">Lien Facebook</a>
+							</div>
+				 		</div>
+			     	</div>
+			     	<div class="row">
+			     	 	 <div class="col">
+			     	 	 	 <div class="row">
+			     	 	 		 <img class=avatar src= "assets/img/twitter.png">
+								<a href="https://twitter.com/lgenligne?lang=fr">Lien Twitter </a>
+							</div>
+				 		</div>
+			     	</div>
+			     	 <br /><br />
+				 	<div class="row ">
+						 <div class="col-8 text-left">
+			     			<h5> Contacts</h5>
+			     		</div>
+			     	</div> 	
+			     	 <div class="row">
+			     	 	 <div class="col">
+			     	 	 	 <div class="row">
+								Enoyez un email: &nbsp<a href="mailto:maxime.gibert@sfr.fr">maxime.gibert@sfr.fr</a>
+							</div>
+				 		</div>
+			     	</div>
+				 	<div class="row" >
+				 	 <br /><br /> <br /><br /> <br /><br /> 
+				 	</div> 
+				 </div>
+				 <br /><br />
+		 	</section>
+		 	
+		 	<section class="container" id="organisationPartie">
+		 		<div class= bloc>
+		 		 	<div class= bloctitre>
+				 		<p class="col-12 text-center">REJOINDRE PARTIE</p>
+				 	</div>
+				 	<div class= bloccontenu>
+				 	<br />
+				 		<div class="row ">
+			 				<div class="col largeur" th:each="partie: ${parties}"> 
+								<a class=" enregistrer btn btn-success" th:href="@{plateau/{id}(id=${partie.id})}">n°[[${ partie.id }]]</a>
+							</div>
+						</div>
+					 	<br />
+					 <br />
+					 </div>
+					 <div class= bloc>
+					 	<div class=bloctitre>
+					 		<p class="col-12 text-center">Liste des Personnages</p>
+						</div>
+						<div class=bloccontenu>	
+							<div class="row justify-content-center">
+							 	<table>
+							 		<thead class="thead-dark">
+									    <tr align="center">
+									      <th scope="col">Personnage</th>	
+									       <th  scope="col">Pouvoir</th>
+									   	</tr>
+									 </thead>
+									<tr th:each="personnage: ${personnages}">
+										<td align="center">[[${ personnage.libelle }]]</td>
+										<td align="center">
+											<span th:each="pouvoir : ${personnage.pouvoirs}">
+											<span th:text="${ pouvoir.libelle}"></span>, </span>
+											<!-- SPAN AVEC TH-EACH : POUR CHAQUE POUVOIR DU PERSONNAGE -->
+										</td>
+									</tr>
+							 	</table>
+							 </div>
+					 	</div>
+				 	</div>
+			 	</div>
+			 	 <br /><br />
+		 	</section>
+	 	</div> 
+	 	
+  		<br /> <br />
+	 	<footer class= "container fixed-bottom text-center"> 
+	 		Copyright Guivie&amp;Co &copy; 2019
+	 	</footer>
+	 	<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+	 	</script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+			integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+			crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+	</body>
+</html>
