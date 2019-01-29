@@ -25,7 +25,7 @@ import fr.loupgarou.model.Pouvoir;
 public class PersonnageController {
 	@Autowired
 	private IDAOPersonnage daoPersonnage;
-	
+		
 	@Autowired
 	private IDAOPouvoir daoPouvoir;
 	
