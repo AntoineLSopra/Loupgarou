@@ -1,44 +1,62 @@
 package fr.loupgarou.controller;
 
+import java.security.Principal;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.loupgarou.dao.IDAOPartie;
 import fr.loupgarou.dao.IDAOPersonnage;
 import fr.loupgarou.dao.IDAOUtilisateur;
+import fr.loupgarou.model.Pouvoir;
+import fr.loupgarou.model.Utilisateur;
+import fr.loupgarou.security.UtilisateurPrincipal;
 
 
 @Controller
-public class AccueilController {
+public class AccueilTempoController {
 	
-	@Autowired
-	private IDAOPersonnage daoPersonnage;
-	
-	@Autowired
-	private IDAOPartie daoPartie;
-	
+
 	@Autowired
 	private IDAOUtilisateur daoUtilisateur;
 	
-
-	@GetMapping("/accueil/{id}")
-	public String accueil( @PathVariable Integer id, HttpSession session, Model model) {
-		
-		model.addAttribute("utilisateur", daoUtilisateur.findById(id).get());  
-		
-		model.addAttribute("personnages", daoPersonnage.trouveravecPouvoirs());
-		
-		model.addAttribute("parties", daoPartie.findAll());
-		
-		
-		return "accueil";
-	}
 	
+	@GetMapping("/accueil")
+	public String index2( Principal principal) {
+		return "redirect:/accueil/" + ((UtilisateurPrincipal)((UsernamePasswordAuthenticationToken)principal).getPrincipal()).getId();
+	}
+
+//	@PostMapping("/accueil")
+//	public String accueil(@RequestParam UtilisateurPrincipal user,   HttpSession session, Model model) {
+//		
+//		int id = user.getId();
+//		
+////	  model.addAttribute("id", daoUtilisateur.findByUsername(user.getUsername()).getId());
+////	 int id = daoUtilisateur.findByUsername(user.getUsername()).getId();
+//		
+//		
+//		return "redirect :accueil/" + id;
+//	}
+
+
+//	 @RequestMapping(value = "/perform_login", method = RequestMethod.POST)
+//	    public String currentUserName(Principal principal, Model model) {  
+//		  String name = principal.getName(); //get logged in username
+//		  int id = daoUtilisateur.findByUsername(name).getId();
+//	      model.addAttribute("id", id);
+//	     return "accueil";
+//	 }
+
+
 
 	
 	
