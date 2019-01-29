@@ -36,6 +36,10 @@ public class UtilisateurPrincipal implements UserDetails {
 		return myAuthorities;
 
 	}
+	
+	public int getId() {
+		return this.utilisateur.getId();
+	}
 
 	public String getPassword() {
 		return this.utilisateur.getPassword();

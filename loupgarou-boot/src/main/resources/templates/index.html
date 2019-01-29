@@ -47,7 +47,6 @@
 		      	  <h3>Connexion</h3>
 		      	   <br />
 					 <div class="form-group row">
-					   <p th:if="${param.error}"> >Il y a un problème </p>
 	       			 	<label for="nom" class="col-md-4 col-form-label">Insérer votre identifiant:</label>
 	           		 	<div class="col">
 	            			<input type="text" class="form-control" id="username" name="username" th:value="${ utilisateur?.username }" placeholder="Identifiant" />
