@@ -10,7 +10,6 @@ public class ConsoleApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println(" Projet Loup-Garou !");
-
 		
 	}
 	
