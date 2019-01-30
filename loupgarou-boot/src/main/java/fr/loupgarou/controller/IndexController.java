@@ -30,14 +30,18 @@ public class IndexController {
 	
 	@PostMapping("/inscription")
 	public String getInscription(@ModelAttribute Joueur joueur, BindingResult result, HttpSession session, Model model){
-			BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-//			String a = bcrypt.encode(joueur.getPassword());
-//			joueur.setPassword(a);
-			
-		System.out.println("xfdbfgvcg");
+		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+
 			joueur.setPassword(bcrypt.encode(joueur.getPassword()));
 			daoUtilisateur.save(joueur);
 		return "redirect:/index";
 	}
+	
+	@GetMapping("/deconnexion")
+    public String deconnexion(HttpSession session) {
+        session.invalidate();
+          return "redirect:/index";
+
+    }
 	
 }
