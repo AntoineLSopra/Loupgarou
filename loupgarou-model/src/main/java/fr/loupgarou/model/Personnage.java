@@ -6,6 +6,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.loupgarou.projection.Views;
+
 @Entity
 @Table(name="personnage")
 
@@ -13,10 +17,13 @@ public class Personnage {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="PER_ID")
+	@JsonView(Views.Common.class)
 	private int id;
+	
 	@Column(name="PER_LIBELLE")
 	@NotEmpty
 	@Size(max=250)
+	@JsonView(Views.Personnage.class)
 	private String libelle;
 
 	@ManyToMany(mappedBy="personnages")

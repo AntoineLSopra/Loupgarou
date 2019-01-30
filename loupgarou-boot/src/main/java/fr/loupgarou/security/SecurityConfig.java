@@ -18,6 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests()
 		.antMatchers("/assets/**").permitAll()
+		.antMatchers("/api/**").permitAll()
 		.antMatchers("/**").hasAnyRole("ADMIN", "USER")
 		.and()
 		.formLogin()
@@ -30,7 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.logout()
 		.logoutUrl("/ma_page_de_deconnexion")
 		.logoutSuccessUrl("/accueil")
-		.permitAll();
+		.permitAll()
+		.and().csrf().ignoringAntMatchers("/api/**");
 	}
 	
 	@Bean

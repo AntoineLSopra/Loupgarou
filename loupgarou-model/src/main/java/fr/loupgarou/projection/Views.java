@@ -6,5 +6,7 @@ public class Views {
 	}
 	public static class Participation extends Common {
 	}
+	public static class Personnage extends Common {
+	}
 
 }
