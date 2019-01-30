@@ -24,6 +24,7 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<div> 		
 					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="/personnages">Gestion des Personnages</a></li>
 						<li class="nav-item"><a class="nav-link" href="/">Déconnexion</a></li>
 					</ul>
 				</div>
@@ -116,7 +117,7 @@
 				 	<br />
 				 		<div class="row ">
 			 				<div class="col largeur" th:each="partie: ${parties}"> 
-								<a class=" enregistrer btn btn-success" th:href="@{plateau/{id}(id=${partie.id})}">n°[[${ partie.id }]]</a>
+								<a class=" enregistrer btn btn-success" th:href="@{/plateau/{id}(id=${partie.id})}">n°[[${ partie.id }]]</a>
 							</div>
 						</div>
 					 	<br />
