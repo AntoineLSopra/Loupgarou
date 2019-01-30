@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import fr.loupgarou.dao.IDAOParticipation;
 import fr.loupgarou.dao.IDAOPartie;
+import fr.loupgarou.dao.IDAOUtilisateur;
 
 
 @Controller
@@ -22,11 +23,15 @@ public class PlateauController {
 	@Autowired
 	private IDAOParticipation daoParticipation;
 	
-
-	@GetMapping("plateau/{id}")
-	public String rejoindrePartie(@PathVariable Integer id, HttpSession session, Model model) {
+	@Autowired
+	private IDAOUtilisateur daoUtilisateur;
+	
+	
+	@GetMapping("{idJoueur}/plateau/{id}")
+	public String rejoindrePartie(@PathVariable Integer id, @PathVariable Integer idJoueur, HttpSession session, Model model) {
 			
-
+		model.addAttribute("utilisateur", daoUtilisateur.findById(idJoueur).get());  
+		
 		model.addAttribute("participations", daoParticipation.findByPartieId(id));
 
 		model.addAttribute("partie", daoPartie.findById(id).get());
