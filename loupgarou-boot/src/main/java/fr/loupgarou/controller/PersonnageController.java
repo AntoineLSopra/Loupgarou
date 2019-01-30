@@ -36,7 +36,6 @@ public class PersonnageController {
 		//A LA PLACE : UNE METHODE QUI RETOURNE UNE LISTE DE PERSO AVEC LES POUVOIRS
 		// -> LEFT JOIN FETCH JPA-QUERIES
 		model.addAttribute("personnages", daoPersonnage.trouveravecPouvoirs());
-		
 		return "personnages";
 	}
 	
