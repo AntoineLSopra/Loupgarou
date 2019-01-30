@@ -25,7 +25,11 @@ public class UtilisateurPrincipal implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> myAuthorities = new ArrayList<GrantedAuthority>();
 		
-		if (this.utilisateur.getId() == 1) {
+		if (this.utilisateur.getId() == 23) {
+			myAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+		}
+		
+		if (this.utilisateur.getId() == 24) {
 			myAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 		}
 		
