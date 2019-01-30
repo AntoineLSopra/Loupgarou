@@ -35,26 +35,7 @@ public class AccueilTempoController {
 		return "redirect:/accueil/" + ((UtilisateurPrincipal)((UsernamePasswordAuthenticationToken)principal).getPrincipal()).getId();
 	}
 
-//	@PostMapping("/accueil")
-//	public String accueil(@RequestParam UtilisateurPrincipal user,   HttpSession session, Model model) {
-//		
-//		int id = user.getId();
-//		
-////	  model.addAttribute("id", daoUtilisateur.findByUsername(user.getUsername()).getId());
-////	 int id = daoUtilisateur.findByUsername(user.getUsername()).getId();
-//		
-//		
-//		return "redirect :accueil/" + id;
-//	}
 
-
-//	 @RequestMapping(value = "/perform_login", method = RequestMethod.POST)
-//	    public String currentUserName(Principal principal, Model model) {  
-//		  String name = principal.getName(); //get logged in username
-//		  int id = daoUtilisateur.findByUsername(name).getId();
-//	      model.addAttribute("id", id);
-//	     return "accueil";
-//	 }
 
 
 
