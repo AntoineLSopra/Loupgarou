@@ -19,8 +19,10 @@ import fr.loupgarou.dao.IDAOPersonnage;
 import fr.loupgarou.dao.IDAOPouvoir;
 import fr.loupgarou.model.Personnage;
 import fr.loupgarou.model.Pouvoir;
+import fr.loupgarou.security.IsAdmin;
 
 @Controller
+@IsAdmin
 @RequestMapping("/personnages")
 public class PersonnageController {
 	@Autowired

@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.permitAll()
 		.and()
 		.logout()
-		.logoutUrl("/ma_page_de_deconnexion")
+		.logoutUrl("/deconnexion")
 		.logoutSuccessUrl("/accueil")
 		.permitAll()
 		.and().csrf().ignoringAntMatchers("/api/**");
