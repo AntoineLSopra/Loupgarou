@@ -1,12 +1,25 @@
 package fr.loupgarou.model;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import fr.loupgarou.projection.Views;
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 public class Participation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PTN_ID")
+	@JsonView(Views.Common.class)
 	private int id;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
