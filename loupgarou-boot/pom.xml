@@ -58,8 +58,11 @@
 	  		<artifactId>loupgarou-model</artifactId>
 	  		<version>0.0.1-SNAPSHOT</version>
   		</dependency>
-  		
-
+  		<!-- https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4 -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
 		  		
 	</dependencies>
 
