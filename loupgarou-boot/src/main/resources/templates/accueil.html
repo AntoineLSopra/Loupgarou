@@ -42,11 +42,8 @@
 				 	</div>
 				 	<div class= bloccontenu>
 					 	<div class="col "> 
-					 			<div class="row "><p class=gras > Prénom: &nbsp <p><p>[[${ utilisateur.prenom }]] </p></div>
-					 			<div class="row "><p class=gras > Nom: &nbsp <p><p>[[${ utilisateur.nom }]] </p></div>
-						 		<div class="row "><p class=gras > Niveau: &nbsp <p><p> 4 </p></div>
-						 		<div class="row "><p class=gras > Parties Jouées: &nbsp <p><p> 8 </p></div>
-						 		<div class="row "><p class=gras > Parties Gagnées: &nbsp <p><p> 6 </p></div>
+				 			<div class="row "><p class=gras > Prénom: &nbsp <p><p>[[${ utilisateur.prenom }]] </p></div>
+				 			<div class="row "><p class=gras > Nom: &nbsp <p><p>[[${ utilisateur.nom }]] </p></div>
 					 	</div>
 					</div> 
 				 </div> 
@@ -120,7 +117,7 @@
 				 	<br />
 				 		<div class="row ">
 			 				<div class="col largeur" th:each="partie: ${parties}"> 
-								<a class=" enregistrer btn btn-success" th:href="@{plateau/{id}(id=${partie.id})}">n�[[${ partie.id }]]</a>
+								<a class=" enregistrer btn btn-success" th:href="@{/plateau/{id}(id=${partie.id})}">n°[[${ partie.id }]]</a>
 							</div>
 						</div>
 					 	<br />
