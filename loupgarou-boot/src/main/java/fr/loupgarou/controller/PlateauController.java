@@ -23,7 +23,7 @@ public class PlateauController {
 	private IDAOParticipation daoParticipation;
 	
 
-	@GetMapping("/plateau/{id}")
+	@GetMapping("accueil/plateau/{id}")
 	public String rejoindrePartie(@PathVariable Integer id, HttpSession session, Model model) {
 			
 
