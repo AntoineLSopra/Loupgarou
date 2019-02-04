@@ -29,7 +29,7 @@ public class PlateauRestController {
 	private IDAOPersonnage daoPersonnage;
 	
 
-	@GetMapping("/api/personnages")
+	@GetMapping("/api/plateau")
 	@JsonView(Views.Personnage.class)
 	public List<Personnage> listeRest() {
 
