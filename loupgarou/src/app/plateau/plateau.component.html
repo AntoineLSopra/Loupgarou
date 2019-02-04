@@ -1,24 +1,12 @@
 <table>
 <thead>
   <tr>
-    <th>id</th>
     <th>libelle</th>
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let p of produitService.findAllAsync() | async">
-      <td><a href="http://localhost:4200/produit/{{p.id}}">{{p.nom}}</a></td>
-      <td>{{ p.prix }}</td>
-      <td [style.color]="p.prix | prixCategory">
-        {{ p.prix | prixCategory:"string"}}
-          <!-- <span *ngIf="p.prix < 0">Négatif</span>
-          <span *ngIf="p.prix > 0">Positif</span>
-          <span *ngIf="p.prix == 0">Neutre</span> -->
-      </td>
-      <td>
-          <button (click)="editerProduit(p)" class="btn btn-warning mr-2">EDITER</button>
-          <button (click)="supprimerProduit(p)" class="btn btn-danger">SUPPRIMER</button>
-      </td>
+  <tr *ngFor="let p of personnageService.findAllAsync() | async">
+      <td>{{p.libelle}}</td>
   </tr>
 </tbody>
 </table>

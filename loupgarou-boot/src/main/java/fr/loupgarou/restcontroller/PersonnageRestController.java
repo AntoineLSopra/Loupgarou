@@ -20,7 +20,7 @@ public class PersonnageRestController {
 	private IDAOPersonnage daoPersonnage;
 	
 
-	@GetMapping("/api/personnages")
+	@GetMapping("/api/personnage")
 	@JsonView(Views.Personnage.class)
 	public List<Personnage> listeRest() {
 
