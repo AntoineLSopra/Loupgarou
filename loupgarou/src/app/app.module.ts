@@ -15,9 +15,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SprBoldComponent,
-    SprBoldProduitComponent,
-    SprTooltipComponent,
     PlateauComponent
   ],
   imports: [
