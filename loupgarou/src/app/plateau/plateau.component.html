@@ -1,12 +1,25 @@
 <table>
 <thead>
   <tr>
-    <th>libelle</th>
+    <th>ID</th>
+    <th>Joueur</th>
+    <th>Contenu</th>
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let p of personnageService.findAllAsync() | async">
+  <!-- <tr *ngFor="let p of personnageService.findAllAsync() | async">
       <td>{{p.libelle}}</td>
+  </tr> -->
+  <tr>Chat</tr>
+  <tr *ngFor="let c of chatService.findAllAsync() | async">
+      <td>{{c.id}}</td>
+      <td>{{c.joueur.username}}</td>
+      <td>{{c.contenu}}</td>
   </tr>
+  <tr><br /></tr>
+  <!-- <tr><div>
+  <label>Message : </label>
+  <input type="text" [(ngModel)]="message.contenu" />
+  </div></tr> -->
 </tbody>
 </table>
