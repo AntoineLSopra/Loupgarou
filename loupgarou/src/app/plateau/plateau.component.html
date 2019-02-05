@@ -95,7 +95,7 @@
 
 <!-- CHAT -->
     <div id="chat" class="container chat">
-			 		<div class="container row" *ngFor="let c of chatService.findAllAsync() | async">
+			 		<div class="container row" *ngFor="let c of chatService.messages">
 					  <img class="avatar" src="/assets/img/cupidon-old.jpg">
 					  <p class=gras>{{c.joueur.username}}<span> : &#xA0;</span></p>
 					  <p>{{c.contenu}}</p>

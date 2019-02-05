@@ -25,13 +25,14 @@ export class PlateauComponent {
     this.route.params.subscribe(params => {
       this.id = params.id;
             this.participationService.findById(params.id);
+            this.chatService.findById(params.id);
         });
   }
 
   ajouterMessage() {
-    this.message.partie = { id: 15 };
+    this.message.partie = { id :this.id};
     this.message.joueur = { id: 37 };
-    this.chatService.save(this.message);
+    this.chatService.save(this.message, this.id);
   }
 
   // ngOnInit() {
