@@ -13,19 +13,20 @@ import { ChatService } from '../chat.service';
   selector: 'app-plateau',
   templateUrl: './plateau.component.html',
   styleUrls: ['./plateau.component.css'],
-  providers: [ PersonnageService , ParticipationService]
-  providers: [ ChatService, PersonnageService]
+  providers: [ PersonnageService , ParticipationService, ChatService]
 })
-export class PlateauComponent implements OnInit {
-  private message: Message = new Message();
-  constructor(private personnageService : PersonnageService, private chatService : ChatService) { }
-
 export class PlateauComponent {
-public vara=true;
-public id;
- setValue() { this.vara=false; }
+  private message: Message = new Message();
+  public vara=true;
+  public id;
+  setValue() { this.vara=false; }
 
-  constructor(private route: ActivatedRoute, private personnageService : PersonnageService, private participationService : ParticipationService) {
+  constructor(private route: ActivatedRoute, private personnageService : PersonnageService, private participationService : ParticipationService, private chatService: ChatService) {
+    this.route.params.subscribe(params => {
+      this.id = params.id;
+            this.participationService.findById(params.id);
+        });
+  }
 
   ajouterMessage() {
     this.message.partie = { id: 15 };
@@ -33,11 +34,6 @@ public id;
     this.chatService.save(this.message);
   }
 
-      this.route.params.subscribe(params => {
-        this.id = params.id;
-              this.participationService.findById(params.id);
-          });
-    }
   // ngOnInit() {
   // }
   supprimerParticipation(participation: Participation) {
