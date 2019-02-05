@@ -11,10 +11,7 @@ export class ParticipationService {
   public participation = new Participation();
   public participationAsync: any = null;
 
-
-
   constructor(private appConfig: AppConfigService, private httpClient: HttpClient) {
-
    }
 
    // findAllAsync() {
@@ -24,17 +21,23 @@ export class ParticipationService {
    //   }
    //   return this.participationAsync;
    // }
-   //
-   // refresh() {
-   //     this.participationAsync = null;
-   // }
 
+   refresh() {
+       this.participationAsync = null;
+   }
 
    findById(id: number) {
 
    this.httpClient
        .get("http://localhost:8080/api/participation/" + id )
          .subscribe(resp => this.participations = resp);
-  }
+    }
 
+  delete(participation: Participation, id) {
+
+    this.httpClient
+        .delete("http://localhost:8080/api/participation/" + participation.id)
+        .subscribe(resp => this.findById(id));
+
+    }
 }

@@ -66,14 +66,15 @@
 					</div>
 					<div class= bloccontenu>
 					 	     <p> C'est votre tour ! <br /> <p>
-						     <div id=affichageliste class="col justify-content">
+						     <div id=affichageliste class="col largeur">
 					  		     <!-- <button type="submit" value="Envoyer" class="btn btn-primary enregistrer" >DEVORER UN PERSO</button> -->
                      <button  class="btn btn-success" (click)="setValue()" >DEVORER UN PERSO</button>
 					 	     </div>
 						     <section  >
 						  	     <form [hidden]="vara" >
+                        <br />
                         <div class="col largeur" *ngFor="let q of participationService.participations" >
-                            <a>{{q.joueur.username}}</a>
+                            <button (click)="supprimerParticipation(q)" >{{q.joueur.username}}</button>
                         </div>
 						         </form>
 					 	     </section>

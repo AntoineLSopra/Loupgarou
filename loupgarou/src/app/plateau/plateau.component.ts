@@ -16,15 +16,23 @@ import { Partie } from './partie';
 
 export class PlateauComponent {
 public vara=true;
+public id;
  setValue() { this.vara=false; }
 
   constructor(private route: ActivatedRoute, private personnageService : PersonnageService, private participationService : ParticipationService) {
 
       this.route.params.subscribe(params => {
+        this.id = params.id;
               this.participationService.findById(params.id);
           });
     }
   // ngOnInit() {
   // }
+  supprimerParticipation(participation: Participation) {
+    this.participationService.delete(participation, this.id);
+
+    // let index = this.produits.indexOf(produit);
+    // this.produits.splice(index, 1);
+    }
 
 }
