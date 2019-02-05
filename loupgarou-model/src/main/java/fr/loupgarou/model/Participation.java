@@ -24,14 +24,17 @@ public class Participation {
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="PTN_PARTIE_ID")
+	@JsonView(Views.Participation.class)
 	private Partie partie;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="PTN_JOUEUR_ID")
+	@JsonView(Views.Participation.class)
 	private Joueur joueur;
 	
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="PTN_PERSONNAGE_ID")
+	@JsonView(Views.Participation.class)
 	private Personnage personnage;
 
 	@Enumerated (EnumType.ORDINAL)
