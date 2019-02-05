@@ -8,5 +8,6 @@ public class Views {
 	}
 	public static class Personnage extends Common {
 	}
-
+	public static class Chat extends Common {	
+	}
 }

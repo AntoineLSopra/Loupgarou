@@ -37,6 +37,7 @@ public class Utilisateur {
 		@NotEmpty
 		@Size(max=250)
 		@JsonView(Views.Participation.class)
+		@JsonView(Views.Chat.class)
 		private String username;
 		
 		@Column(name="UTI_PASSWORD", length = 250, nullable=false)
