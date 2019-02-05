@@ -58,18 +58,11 @@ export class ChatService {
   //   // return this.produit;
   // }
 
-  // save(personnage: Personnage) {
-  //   if (personnage.id > 0) {
-  //     this.httpClient
-  //         .put("http://localhost:8080/api/personnages/"+ personnage.id, personnage)
-  //         .subscribe(resp => this.refresh());
-  //   }
-  //   else{
-  //     this.httpClient
-  //         .post("http://localhost:8080/api/personnages", personnage)
-  //         .subscribe(resp => this.refresh());
-  //   }
-  // }
+  save(message: Message) {
+      this.httpClient
+          .post("http://localhost:8080/api/chat", message)
+          .subscribe(resp => this.refresh());
+  }
   //
   // delete(personnage: Personnage) {
   //   this.httpClient

@@ -26,7 +26,7 @@ public class Message {
 	@JsonView(Views.Chat.class)
 	private Partie partie;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name="MES_JOUEUR_ID")
 	@JsonView(Views.Chat.class)
 	private Joueur joueur;

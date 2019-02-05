@@ -12,10 +12,16 @@ import { ChatService } from '../chat.service';
   providers: [ ChatService, PersonnageService]
 })
 export class PlateauComponent implements OnInit {
-
+  private message: Message = new Message();
   constructor(private personnageService : PersonnageService, private chatService : ChatService) { }
 
   ngOnInit() {
+  }
+
+  ajouterMessage() {
+    this.message.partie = { id: 15 };
+    this.message.joueur = { id: 37 };
+    this.chatService.save(this.message);
   }
 
 }
