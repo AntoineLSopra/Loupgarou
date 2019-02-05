@@ -23,7 +23,7 @@ public class Personnage {
 	@Column(name="PER_LIBELLE")
 	@NotEmpty
 	@Size(max=250)
-	@JsonView(Views.Personnage.class)
+	@JsonView(Views.Common.class)
 	private String libelle;
 
 	@ManyToMany(mappedBy="personnages")
