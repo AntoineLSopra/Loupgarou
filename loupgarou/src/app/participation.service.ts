@@ -10,17 +10,18 @@ export class ParticipationService {
   public participations: any = new Array<Participation>();
   public participation = new Participation();
   public participationAsync: any = null;
+  private httpOptions: any;
 
   constructor(private appConfig: AppConfigService, private httpClient: HttpClient) {
+    // entete http avec id
+    let myHeaders: HttpHeaders = new HttpHeaders();
+    //On applique les id à l'entete
+    myHeaders = myHeaders.append('Authorization', "Basic " + btoa("maxime.gibert@sfr.fr:123456"));
+    // options http pour la requete
+    this.httpOptions = {
+        headers: myHeaders
+    };
    }
-
-   // findAllAsync() {
-   //   if (this.participationAsync == null) {
-   //   this.participationAsync =  this.httpClient
-   //         .get("http://localhost:8080/api/participation/{id}");
-   //   }
-   //   return this.participationAsync;
-   // }
 
    refresh() {
        this.participationAsync = null;
@@ -29,14 +30,14 @@ export class ParticipationService {
    findById(id: number) {
 
    this.httpClient
-       .get("http://localhost:8080/api/participation/" + id )
+       .get("http://localhost:8080/api/participation/" + id , this.httpOptions)
          .subscribe(resp => this.participations = resp);
     }
 
   delete(participation: Participation, id) {
 
     this.httpClient
-        .delete("http://localhost:8080/api/participation/" + participation.id)
+        .delete("http://localhost:8080/api/participation/" + participation.id, this.httpOptions)
         .subscribe(resp => this.findById(id));
 
     }
