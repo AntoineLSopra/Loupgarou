@@ -95,23 +95,11 @@
 
 <!-- CHAT -->
     <div id="chat" class="container chat">
-			<div *ngFor="let c of chatService.findAllAsync() | async">
-		      <span>{{c.id}}</span>
-		      <span>{{c.joueur.username}}</span>
-		      <span>{{c.contenu}}</span>
-		  </div><br>
-			<div>
-			    <label>Message : </label>
-			    <input type="text" [(ngModel)]="message.contenu" />
-			</div>
-			<div>
-			    <button (click)="ajouterMessage()">Envoyer</button>
-			</div>
-			 		<div class="container row">
+			 		<div class="container row" *ngFor="let c of chatService.messages">
 					  <img class="avatar" src="/assets/img/cupidon-old.jpg">
-					  <p class=gras>Username :</p>
-					  <p>Hello. How are you today?</p>
-					  <span class="time-right content-right"> 11:00</span>
+					  <p class=gras>{{c.joueur.username}}<span> : &#xA0;</span></p>
+					  <p>{{c.contenu}}</p>
+					  <!-- <span class="time-right content-right"> 11:00</span> -->
 					</div>
 		</div>
 
@@ -120,12 +108,13 @@
       <div class="col-sm-10">
         <div class=row>
           <img class="avatar" src="/assets/img/cupidon-old.jpg">
-          <p class=gras> Username : </p>
-          <input type="text" class="col" id="username" name="username" placeholder="ecrire un message" />
+          <p class=gras> Username : &#xA0;</p>
+          <input type="text" class="col" id="username" name="username" [(ngModel)]="message.contenu" placeholder="ecrire un message" />
         </div>
       </div>
       <div class="col-sm-2">
-        <a class="message" href="#envoimessage">Envoyer</a>
+				<button class="message" (click)="ajouterMessage()">Envoyer</button>
+        <!-- <a class="message" href="#envoimessage">Envoyer</a> -->
       </div>
     </div>
 
