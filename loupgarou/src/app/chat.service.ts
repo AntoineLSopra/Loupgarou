@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ChatService {
-  public messages: Array<Message> = new Array<Message>();
+  public messages: any = new Array<Message>();
   public message = new Message();
   public messageAsync: any = null;
   constructor(private appConfig: AppConfigService, private httpClient: HttpClient) {
@@ -26,24 +26,16 @@ export class ChatService {
         // };
     }
 
-  findAll() {
-    this.httpClient
-        .get<Message[]>("http://localhost:8080/api/chat")
-        //.subscribe(resp => this.produits = resp) //VERSION 1 TRAITEMENT
-        .subscribe(resp => { //VERSION 2 TRAITEMENTS
-          console.log(resp);
-          this.messages = resp;
-        });
-    // return this.produits; ON PEUT SEN PASSER
-  }
 
-  findAllAsync() {
-    if (this.messageAsync == null) {
-    this.messageAsync =  this.httpClient
-          .get("http://localhost:8080/api/chat");
-    }
-    return this.messageAsync;
-  }
+
+  findById(id: number) {
+
+  this.httpClient
+      .get("http://localhost:8080/api/chat/" + id )
+        .subscribe(resp => this.messages = resp);
+   }
+
+
 
   refresh() {
       this.messageAsync = null;
@@ -58,15 +50,28 @@ export class ChatService {
   //   // return this.produit;
   // }
 
-  save(message: Message) {
+  save(message: Message, id) {
       this.httpClient
           .post("http://localhost:8080/api/chat", message)
-          .subscribe(resp => this.refresh());
+          .subscribe(resp => this.findById(id));
   }
-  //
-  // delete(personnage: Personnage) {
+
+  // findAll() {
   //   this.httpClient
-  //       .delete("http://localhost:8080/api/personnages/" +personnage.id)
-  //       .subscribe(resp => this.refresh());
+  //       .get<Message[]>("http://localhost:8080/api/chat")
+  //       //.subscribe(resp => this.produits = resp) //VERSION 1 TRAITEMENT
+  //       .subscribe(resp => { //VERSION 2 TRAITEMENTS
+  //         console.log(resp);
+  //         this.messages = resp;
+  //       });
+  //   // return this.produits; ON PEUT SEN PASSER
+  // }
+  //
+  // findAllAsync() {
+  //   if (this.messageAsync == null) {
+  //   this.messageAsync =  this.httpClient
+  //         .get("http://localhost:8080/api/chat");
+  //   }
+  //   return this.messageAsync;
   // }
 }

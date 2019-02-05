@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.loupgarou.dao.IDAOMessage;
 import fr.loupgarou.model.Message;
+import fr.loupgarou.model.Participation;
 import fr.loupgarou.projection.Views;
 
 
@@ -27,6 +29,13 @@ public class ChatRestController {
 	@JsonView(Views.Chat.class)
 	public List<Message> listeRest() {
 		return this.daoMessage.findAll();
+	}
+	
+	@GetMapping("/api/chat/{idPartie}")
+	@JsonView(Views.Chat.class)
+	public List<Message> listeRestId(@PathVariable int idPartie) {
+
+		return this.daoMessage.findByPartieId(idPartie);
 	}
 	
 	@PostMapping
