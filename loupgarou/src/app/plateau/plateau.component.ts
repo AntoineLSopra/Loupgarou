@@ -15,12 +15,14 @@ import { Partie } from './partie';
 })
 
 export class PlateauComponent {
+public vara=true;
+ setValue() { this.vara=false; }
 
   constructor(private route: ActivatedRoute, private personnageService : PersonnageService, private participationService : ParticipationService) {
 
-    this.route.params.subscribe(params => {
-            this.participationService.findById(params.id);
-        });
+      this.route.params.subscribe(params => {
+              this.participationService.findById(params.id);
+          });
     }
   // ngOnInit() {
   // }
