@@ -1,12 +1,28 @@
 <table>
-<thead>
-  <tr>
-    <th>libelle</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let p of personnageService.findAllAsync() | async">
-      <td>{{p.libelle}}</td>
-  </tr>
-</tbody>
+  <thead>
+      <tr>
+        <th>Liste des personnages</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let p of personnageService.findAllAsync() | async">
+          <td>{{p.libelle}}</td>
+      </tr>
+  </tbody>
+</table>
+<br />
+<h2> Liste des Joueurs </h2>
+<table>
+  <thead>
+      <tr>
+        <th>idParticipation</th>
+        <th>Joueur</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let q of participationService.participations">
+          <td>{{q.id}}</td>
+          <td>{{q.joueur.username}}</td>
+      </tr>
+  </tbody>
 </table>

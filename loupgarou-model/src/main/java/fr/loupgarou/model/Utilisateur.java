@@ -6,6 +6,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.loupgarou.projection.Views;
+
 
 //JOINED
 @Entity
@@ -17,6 +21,7 @@ public class Utilisateur {
 		@Id
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		@Column(name="UTI_ID")
+		@JsonView(Views.Common.class)
 		private int id;
 		
 		@Column(name="UTI_NOM")
@@ -31,6 +36,7 @@ public class Utilisateur {
 		@Column(name="UTI_USERNAME")
 		@NotEmpty
 		@Size(max=250)
+		@JsonView(Views.Participation.class)
 		private String username;
 		
 		@Column(name="UTI_PASSWORD", length = 250, nullable=false)

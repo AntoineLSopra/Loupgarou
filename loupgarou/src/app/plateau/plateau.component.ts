@@ -1,19 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { Personnage } from './personnage';
 import { PersonnageService } from '../personnage.service';
-
+import { Participation } from './participation';
+import { ParticipationService } from '../participation.service';
+import { Partie } from './partie';
 
 @Component({
   selector: 'app-plateau',
   templateUrl: './plateau.component.html',
   styleUrls: ['./plateau.component.css'],
-  providers: [ PersonnageService]
+  providers: [ PersonnageService , ParticipationService]
 })
-export class PlateauComponent implements OnInit {
 
-  constructor(private personnageService : PersonnageService) { }
+export class PlateauComponent {
 
-  ngOnInit() {
-  }
+  constructor(private route: ActivatedRoute, private personnageService : PersonnageService, private participationService : ParticipationService) {
+
+    this.route.params.subscribe(params => {
+            this.participationService.findById(params.id);
+        });
+    }
+  // ngOnInit() {
+  // }
 
 }

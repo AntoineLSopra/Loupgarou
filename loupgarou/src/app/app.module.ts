@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { PlateauComponent } from './plateau/plateau.component';
 
 const routes: Routes = [
-  { path: 'plateau', component: PlateauComponent },
+  { path: 'plateau/:id', component: PlateauComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
