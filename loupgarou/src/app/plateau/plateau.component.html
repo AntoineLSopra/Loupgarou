@@ -7,33 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/bouton.css" /><link rel="stylesheet" type="text/css" href="/assets/css/navbar.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/plateau.css" />
 	</head>
-<table>
-<thead>
-  <tr>
-    <th>ID</th>
-    <th>Joueur</th>
-    <th>Contenu</th>
-  </tr>
-</thead>
-<tbody>
-  <!-- <tr *ngFor="let p of personnageService.findAllAsync() | async">
-      <td>{{p.libelle}}</td>
-  </tr> -->
-  <tr>Chat</tr>
-  <div *ngFor="let c of chatService.findAllAsync() | async">
-      <span>{{c.id}}</span>
-      <span>{{c.joueur.username}}</span>
-      <span>{{c.contenu}}</span>
-  </div><br>
-</tbody>
-</table>
-<div>
-    <label>Message : </label>
-    <input type="text" [(ngModel)]="message.contenu" />
-</div>
-<div>
-    <button (click)="ajouterMessage()">Envoyer</button>
-</div>
+
 
 	<body>
 	<nav class="navbar navbar-expand-lg">
@@ -121,6 +95,18 @@
 
 <!-- CHAT -->
     <div id="chat" class="container chat">
+			<div *ngFor="let c of chatService.findAllAsync() | async">
+		      <span>{{c.id}}</span>
+		      <span>{{c.joueur.username}}</span>
+		      <span>{{c.contenu}}</span>
+		  </div><br>
+			<div>
+			    <label>Message : </label>
+			    <input type="text" [(ngModel)]="message.contenu" />
+			</div>
+			<div>
+			    <button (click)="ajouterMessage()">Envoyer</button>
+			</div>
 			 		<div class="container row">
 					  <img class="avatar" src="/assets/img/cupidon-old.jpg">
 					  <p class=gras>Username :</p>
