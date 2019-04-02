@@ -42,8 +42,8 @@
 
    		<section id="connexion" >
 		    <div class="container">
-		        <form id="connexion-inscription" class="perso" method="POST" action="perform_login">
-		        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		        <form id="connexion-inscription" class="perso" method="GET" action="connexion">
+		        <input type="hidden"   />
 		      	  <h3>Connexion</h3>
 		      	   <br />
 					 <div class="form-group row">
@@ -61,7 +61,7 @@
 			 		<br />
 			        <div class="row">
 						<div class="col text-center"> 
-							<input type="submit" class=" valider btn btn-success"  value="Se Connecter" />
+							<input type="submit" class=" valider btn btn-success"  value="Se Connecter" th:href="@{/accueil/{id}}"/>
 					  	</div>	
 					</div>	
 				</form>	
@@ -73,7 +73,7 @@
     	<section id="inscription">
 		    <div class="container">
 		        <form id="inscription" class="perso" method="POST" action="inscription">
-		        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		        <input type="hidden"  />
 		      	  <h3>Inscription</h3>
 		      	   <br />
 					 <div class="form-group row">

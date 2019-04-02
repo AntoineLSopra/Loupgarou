@@ -3,7 +3,6 @@ package fr.loupgarou.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,23 +22,18 @@ public class IndexController {
 	private IDAOUtilisateur daoUtilisateur;
 	
 	@GetMapping("/index")
-	public String index() {
-		
+	public String index() {	
 		return "index";
 	}
 	
 	@PostMapping("/inscription")
 	public String getInscription(@ModelAttribute Joueur joueur, BindingResult result, HttpSession session, Model model){
-		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-
-			joueur.setPassword(bcrypt.encode(joueur.getPassword()));
 			daoUtilisateur.save(joueur);
 		return "redirect:/index";
 	}
 	
 	@GetMapping("/deconnexion")
     public String deconnexion(HttpSession session) {
-        session.invalidate();
           return "redirect:/index";
 
     }

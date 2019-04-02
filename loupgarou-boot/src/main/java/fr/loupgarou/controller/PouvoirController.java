@@ -14,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import fr.loupgarou.dao.IDAOPersonnage;
 import fr.loupgarou.dao.IDAOPouvoir;
 import fr.loupgarou.model.Pouvoir;
-import fr.loupgarou.security.IsAdmin;
 
 @Controller
-@IsAdmin
 @RequestMapping("/pouvoir")
 
 public class PouvoirController {

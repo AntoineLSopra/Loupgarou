@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import fr.loupgarou.dao.IDAOPartie;
 import fr.loupgarou.dao.IDAOPersonnage;
 import fr.loupgarou.dao.IDAOUtilisateur;
+import fr.loupgarou.model.Utilisateur;
 
 
 @Controller
