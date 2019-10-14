@@ -1,18 +1,19 @@
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #663300;
-    border-style: hidden;
-    width: 100% !important;}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited
+	{
+	background-color: #663300;
+	border-style: hidden;
+	width: 50% !important;
+}
 
-    
 .btn-success {
 	border-style: hidden;
-}    
+}
 
-form.large{
-	 width: 100% !important;
+form.large {
+	width: 100% !important;
 	margin: 0 auto;
 }
-    
+
 form.boutons {
 	width: 80%;
 	margin: 0 auto;
@@ -39,7 +40,7 @@ button.annuler {
 	margin: 0 auto;
 }
 
-form.boutonsAccueil{
+form.boutonsAccueil {
 	width: 50%;
 	margin: 0 auto;
 }
@@ -54,23 +55,17 @@ form.unique {
 	margin: 0 auto;
 }
 
-
-
 body {
-	background-color : #DBC788;
+	background-color: #DBC788;
 }
 
-
-section#connexion,
-section[id="inscription"] {
-	display:none;
+section#connexion, section[id="inscription"] {
+	display: none;
 }
-
 
 section[id="liste"] {
-	display:none;
+	display: none;
 }
-
 
 button[name="AjouterPerso"] {
 	background: rgb(186, 61, 12);
@@ -87,9 +82,7 @@ button[name="AjouterPerso"] {
 	width: 100% !important;
 }
 
-
-td input[value="Modifier"]
-{
+td input[value="Modifier"] {
 	position: relative;
 	top: 0;
 	width: 100px;
@@ -100,12 +93,11 @@ td input[value="Modifier"]
 	color: white;
 	border: none;
 	box-shadow: 1px 1px #EEE;
-	
 	cursor: pointer;
 	transition: all 0.25s ease;
 }
-td input[value="Supprimer"]
-{
+
+td input[value="Supprimer"] {
 	position: relative;
 	top: 0;
 	width: 100px;
@@ -120,8 +112,8 @@ td input[value="Supprimer"]
 	transition: all 0.25s ease;
 }
 
-td input[id="Valider"]{
- 	display: none;
+td input[id="Valider"] {
+	display: none;
 	position: relative;
 	top: 0;
 	width: 100px;
@@ -136,10 +128,10 @@ td input[id="Valider"]{
 	transition: all 0.25s ease;
 }
 
-.input-field{
+.input-field {
 	position: relative;
 	display: none;
-	height:25px;
+	height: 25px;
 	width: 175px;
 	top: 2px;
 	border: 1px solid #C2C2C2;
@@ -148,9 +140,8 @@ td input[id="Valider"]{
 	-moz-border-radius: 4px;
 }
 
-
-td input[id="cancel"]{
- 	display: none;
+td input[id="cancel"] {
+	display: none;
 	position: relative;
 	top: 0;
 	width: 75px;
@@ -165,7 +156,7 @@ td input[id="cancel"]{
 	transition: all 0.25s ease;
 }
 
-td br{
+td br {
 	display: none;
 	position: relative;
 	top: 10px;
@@ -175,5 +166,6 @@ td br{
 	display: none;
 }
 
-form select[name="pouvoir"], input[name="libelle"]{
+form select[name="pouvoir"], input[name="libelle"] {
 	width: 200px;
+}

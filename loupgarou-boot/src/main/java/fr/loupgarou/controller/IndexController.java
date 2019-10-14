@@ -14,28 +14,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.loupgarou.dao.IDAOUtilisateur;
 import fr.loupgarou.model.Joueur;
 
-
-
 @Controller
 public class IndexController {
 	@Autowired
 	private IDAOUtilisateur daoUtilisateur;
-	
+
 	@GetMapping("/index")
-	public String index() {	
+	public String index() {
 		return "index";
 	}
-	
+
 	@PostMapping("/inscription")
-	public String getInscription(@ModelAttribute Joueur joueur, BindingResult result, HttpSession session, Model model){
-			daoUtilisateur.save(joueur);
+	public String getInscription(@ModelAttribute Joueur joueur, BindingResult result, HttpSession session,
+			Model model) {
+		daoUtilisateur.save(joueur);
 		return "redirect:/index";
 	}
-	
-	@GetMapping("/deconnexion")
-    public String deconnexion(HttpSession session) {
-          return "redirect:/index";
 
-    }
-	
+	@PostMapping("/connexion")
+	public String postConnexion(@RequestParam String username, @RequestParam String password, HttpSession session,
+			Model model) {
+
+		if (daoUtilisateur.findByUsername(username) != null
+				&& daoUtilisateur.findByUsername(username).getPassword().equals(password)) {
+
+			return "redirect:accueil/".concat(Integer.toString(daoUtilisateur.findByUsername(username).getId()));
+		}
+
+		else {
+			return "redirect:/index";
+		}
+	}
+
+	@GetMapping("/deconnexion")
+	public String deconnexion(HttpSession session) {
+		return "redirect:/index";
+
+	}
+
 }
